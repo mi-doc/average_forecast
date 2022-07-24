@@ -1,9 +1,10 @@
-from django.urls import path
+# from django.urls import path
 
-from . import views
+# from . import views
 
-app_name = 'weather'
+# app_name = 'weather'
 
-urlpatterns = [
-    path('', views.Index.as_view()),
-]
+# urlpatterns = [
+#     path('', views.Index.as_view()),
+#     path('tasks/', views.run_task()),
+# ]
