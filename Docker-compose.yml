@@ -5,7 +5,7 @@ services:
     build: ./average_forecast
     command: >
       sh -c "
-        # python manage.py runserver 0.0.0.0:8000
+        python manage.py runserver 0.0.0.0:8000
       "
     volumes:
       - ./average_forecast:/average_forecast
@@ -19,7 +19,7 @@ services:
   celery:
     build: 
       context: ./average_forecast
-    command: celery -A average_forecast worker -l debug
+    command: celery --app average_forecast worker --loglevel=info --logfile=logs/celery.log 
     volumes:
       - ./average_forecast:/average_forecast
     env_file:
@@ -30,3 +30,18 @@ services:
 
   redis:
     image: redis:6-alpine
+  
+  dashboard:
+    image: mher/flower
+    container_name: flower
+    command: celery flower --persisten=True
+    volumes:
+      - ./average_forecast:/average_forecast
+    ports:
+      - 5555:5555
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - redis
+      - celery

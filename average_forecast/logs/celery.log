@@ -1,0 +1,24 @@
+[2022-07-24 18:46:19,883: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-24 18:46:19,887: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-24 18:46:20,894: INFO/MainProcess] mingle: all alone
+[2022-07-24 18:46:20,905: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-24 18:46:20,907: INFO/MainProcess] celery@229e5d67cfab ready.
+[2022-07-24 18:46:27,369: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-24 18:47:21,593: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-24 18:47:21,598: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-24 18:47:22,611: INFO/MainProcess] mingle: all alone
+[2022-07-24 18:47:22,622: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-24 18:47:22,624: INFO/MainProcess] celery@2a704cef8367 ready.
+[2022-07-24 18:47:29,012: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-24 18:47:38,536: INFO/MainProcess] Task weather.tasks.create_task[598b62aa-21db-42ff-83a0-485d6087549b] received
+[2022-07-24 18:47:48,547: INFO/ForkPoolWorker-1] Task weather.tasks.create_task[598b62aa-21db-42ff-83a0-485d6087549b] succeeded in 10.004240837995894s: True
+[2022-07-24 18:47:54,706: INFO/MainProcess] Task weather.tasks.create_task[36dfcd97-6fab-4678-abcb-1388c1a275ba] received
+[2022-07-24 18:47:55,362: INFO/MainProcess] Task weather.tasks.create_task[6ae0faba-7527-47c1-ac95-ece6ac4c49b5] received
+[2022-07-24 18:48:14,747: INFO/ForkPoolWorker-1] Task weather.tasks.create_task[36dfcd97-6fab-4678-abcb-1388c1a275ba] succeeded in 20.030777051011682s: True
+[2022-07-24 18:48:25,424: INFO/ForkPoolWorker-3] Task weather.tasks.create_task[6ae0faba-7527-47c1-ac95-ece6ac4c49b5] succeeded in 30.04574422199221s: True
