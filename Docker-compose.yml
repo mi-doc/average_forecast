@@ -5,7 +5,7 @@ services:
     build: ./average_forecast
     command: >
       sh -c "
-        python manage.py runserver
+        python manage.py runserver 0.0.0.0:8000
       "
     volumes:
       - ./average_forecast:/average_forecast
@@ -19,7 +19,7 @@ services:
   celery:
     build: 
       context: ./average_forecast
-    command: celery -A core worker -l debug
+    command: celery -A average_forecast worker -l debug
     volumes:
       - ./average_forecast:/average_forecast
     env_file:
