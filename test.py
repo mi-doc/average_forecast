@@ -45,8 +45,8 @@ async def main():
 
     async with aiohttp.ClientSession() as session:
         actions = [
-            asyncio.ensure_future(get_open_weather_map(session))
-            # asyncio.ensure_future(get_yahoo_weather(session))
+            # asyncio.ensure_future(get_open_weather_map(session))
+            asyncio.ensure_future(get_yahoo_weather(session))
         ]
 
         res = await asyncio.gather(*actions)
