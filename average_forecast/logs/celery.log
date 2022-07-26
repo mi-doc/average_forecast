@@ -22,3 +22,548 @@
 [2022-07-24 18:47:55,362: INFO/MainProcess] Task weather.tasks.create_task[6ae0faba-7527-47c1-ac95-ece6ac4c49b5] received
 [2022-07-24 18:48:14,747: INFO/ForkPoolWorker-1] Task weather.tasks.create_task[36dfcd97-6fab-4678-abcb-1388c1a275ba] succeeded in 20.030777051011682s: True
 [2022-07-24 18:48:25,424: INFO/ForkPoolWorker-3] Task weather.tasks.create_task[6ae0faba-7527-47c1-ac95-ece6ac4c49b5] succeeded in 30.04574422199221s: True
+[2022-07-26 05:45:30,650: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 05:45:30,654: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 05:45:31,665: INFO/MainProcess] mingle: all alone
+[2022-07-26 05:45:31,676: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 05:45:31,682: INFO/MainProcess] celery@2a704cef8367 ready.
+[2022-07-26 05:45:39,771: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 05:46:56,026: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 05:46:56,032: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 05:46:57,041: INFO/MainProcess] mingle: all alone
+[2022-07-26 05:46:57,050: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 05:46:57,051: INFO/MainProcess] celery@4c310dee5e00 ready.
+[2022-07-26 05:47:03,837: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 05:47:31,742: INFO/MainProcess] Task weather.tasks.create_task[7a92d09c-43e1-4817-b43f-7858d06a2d08] received
+[2022-07-26 05:47:41,757: INFO/ForkPoolWorker-1] Task weather.tasks.create_task[7a92d09c-43e1-4817-b43f-7858d06a2d08] succeeded in 10.010025630000001s: True
+[2022-07-26 05:47:59,434: INFO/MainProcess] Task weather.tasks.create_task[1d32ec3f-519f-4f61-ae58-432f8cf21bc5] received
+[2022-07-26 05:48:19,445: INFO/ForkPoolWorker-1] Task weather.tasks.create_task[1d32ec3f-519f-4f61-ae58-432f8cf21bc5] succeeded in 20.0059263s: True
+[2022-07-26 07:35:51,500: ERROR/MainProcess] Received unregistered task of type 'weather.tasks.request_open_weather_map'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["moscow"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (85b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'weather.tasks.request_open_weather_map', 'id': 'a350873d-d006-4106-a5fd-5d054144b855', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'a350873d-d006-4106-a5fd-5d054144b855', 'parent_id': None, 'argsrepr': "('moscow',)", 'kwargsrepr': '{}', 'origin': 'gen18967@45f604675493', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'weather.tasks.request_open_weather_map'
+[2022-07-26 07:37:32,114: ERROR/MainProcess] Received unregistered task of type 'weather.tasks.request_open_weather_map'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["moscow"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (85b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'weather.tasks.request_open_weather_map', 'id': 'c8277261-4364-4f23-af1a-1ec217d4dc14', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'c8277261-4364-4f23-af1a-1ec217d4dc14', 'parent_id': None, 'argsrepr': "('moscow',)", 'kwargsrepr': '{}', 'origin': 'gen18967@45f604675493', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'weather.tasks.request_open_weather_map'
+[2022-07-26 07:38:08,360: ERROR/MainProcess] Received unregistered task of type 'weather.tasks.request_open_weather_map'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["moscow"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (85b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'weather.tasks.request_open_weather_map', 'id': '3971e8df-5210-412e-985e-4aed6dfc59e5', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '3971e8df-5210-412e-985e-4aed6dfc59e5', 'parent_id': None, 'argsrepr': "('moscow',)", 'kwargsrepr': '{}', 'origin': 'gen21303@45f604675493', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'weather.tasks.request_open_weather_map'
+[2022-07-26 07:41:35,637: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 07:41:35,641: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 07:41:36,647: INFO/MainProcess] mingle: all alone
+[2022-07-26 07:41:36,656: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 07:41:36,659: INFO/MainProcess] celery@83de2c4d4bc0 ready.
+[2022-07-26 07:41:43,260: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 07:42:13,321: INFO/MainProcess] Task weather.tasks.request_open_weather_map[8998bb12-38bf-4690-99cd-9a14a268bd4b] received
+[2022-07-26 07:42:13,332: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[8998bb12-38bf-4690-99cd-9a14a268bd4b] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request.get(url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 07:43:38,737: INFO/MainProcess] Task weather.tasks.request_open_weather_map[61ab614c-5d0e-4f01-9fd8-0edadeddfd34] received
+[2022-07-26 07:43:38,744: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[61ab614c-5d0e-4f01-9fd8-0edadeddfd34] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request.get(url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 07:44:00,976: INFO/MainProcess] Task weather.tasks.request_open_weather_map[6b3dc076-cfe4-43f2-9500-e1def5a62edc] received
+[2022-07-26 07:44:00,988: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[6b3dc076-cfe4-43f2-9500-e1def5a62edc] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request.get(url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 07:47:10,405: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 07:47:10,413: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 07:47:11,424: INFO/MainProcess] mingle: all alone
+[2022-07-26 07:47:11,433: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 07:47:11,435: INFO/MainProcess] celery@83de2c4d4bc0 ready.
+[2022-07-26 07:47:17,442: INFO/MainProcess] Task weather.tasks.request_open_weather_map[ee4807f5-1670-4006-bca3-ad3c9fecb6ca] received
+[2022-07-26 07:47:17,451: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[ee4807f5-1670-4006-bca3-ad3c9fecb6ca] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request.get(url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 07:47:17,963: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 07:47:36,439: INFO/MainProcess] Task weather.tasks.request_open_weather_map[e8abbd5d-33f9-4cba-9d1c-543c33df23f5] received
+[2022-07-26 07:47:36,448: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[e8abbd5d-33f9-4cba-9d1c-543c33df23f5] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request.get(url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 07:56:23,683: INFO/MainProcess] Task weather.tasks.request_open_weather_map[9dc468c9-7d52-4589-8c1f-f9c1314d3e72] received
+[2022-07-26 07:56:23,691: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[9dc468c9-7d52-4589-8c1f-f9c1314d3e72] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    return data
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 08:00:26,300: INFO/MainProcess] Task weather.tasks.request_open_weather_map[6f64c1a9-34e4-4b8b-b636-4525f381d0f5] received
+[2022-07-26 08:00:26,308: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[6f64c1a9-34e4-4b8b-b636-4525f381d0f5] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    import time
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 08:01:56,784: INFO/MainProcess] Task weather.tasks.request_open_weather_map[1aae0e63-9f07-4cb8-9610-a0adc087a2bc] received
+[2022-07-26 08:01:56,794: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[1aae0e63-9f07-4cb8-9610-a0adc087a2bc] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request("GET", url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 08:02:19,337: INFO/MainProcess] Task weather.tasks.request_open_weather_map[98e0f8a5-98d7-4001-82c5-04b0ae0b2cff] received
+[2022-07-26 08:02:19,348: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[98e0f8a5-98d7-4001-82c5-04b0ae0b2cff] raised unexpected: AttributeError("'function' object has no attribute 'get'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 32, in request_open_weather_map
+    data = request("GET", url, headers=headers, params=querystring)
+AttributeError: 'function' object has no attribute 'get'
+[2022-07-26 08:04:31,986: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 08:04:31,989: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 08:04:32,998: INFO/MainProcess] mingle: all alone
+[2022-07-26 08:04:33,008: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 08:04:33,010: INFO/MainProcess] celery@bdf0e76e8bb7 ready.
+[2022-07-26 08:04:39,559: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 08:04:42,449: INFO/MainProcess] Task weather.tasks.request_open_weather_map[ecdfee98-b5cc-42f6-9929-6dc2ac2baf86] received
+[2022-07-26 08:04:50,627: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[ecdfee98-b5cc-42f6-9929-6dc2ac2baf86] raised unexpected: EncodeError(TypeError('Object of type Response is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 518, in trace_task
+    task.backend.mark_as_done(
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 162, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 528, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 962, in _store_result
+    self._set_with_state(self.get_key_for_task(task_id), self.encode(meta), state)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 418, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 422, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 209, in dumps
+    with _reraise_errors(EncodeError):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 43, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.10/site-packages/kombu/exceptions.py", line 21, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
+[2022-07-26 08:06:11,964: INFO/MainProcess] Task weather.tasks.request_open_weather_map[1c184f9e-c06a-4e98-b48a-e5fb51f90df7] received
+[2022-07-26 08:06:19,328: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[1c184f9e-c06a-4e98-b48a-e5fb51f90df7] raised unexpected: EncodeError(TypeError('Object of type Response is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 518, in trace_task
+    task.backend.mark_as_done(
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 162, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 528, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 962, in _store_result
+    self._set_with_state(self.get_key_for_task(task_id), self.encode(meta), state)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 418, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 422, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 209, in dumps
+    with _reraise_errors(EncodeError):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 43, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.10/site-packages/kombu/exceptions.py", line 21, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
+[2022-07-26 08:06:28,842: INFO/MainProcess] Task weather.tasks.request_open_weather_map[25511ca4-5f30-49f6-9dd6-ba6c3ce3c870] received
+[2022-07-26 08:06:36,193: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[25511ca4-5f30-49f6-9dd6-ba6c3ce3c870] raised unexpected: EncodeError(TypeError('Object of type Response is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 518, in trace_task
+    task.backend.mark_as_done(
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 162, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 528, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 962, in _store_result
+    self._set_with_state(self.get_key_for_task(task_id), self.encode(meta), state)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 418, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 422, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 209, in dumps
+    with _reraise_errors(EncodeError):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 43, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.10/site-packages/kombu/exceptions.py", line 21, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
+[2022-07-26 08:08:34,483: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 08:08:34,487: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 08:08:35,497: INFO/MainProcess] mingle: all alone
+[2022-07-26 08:08:35,507: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 08:08:35,509: INFO/MainProcess] celery@08a43a398fb0 ready.
+[2022-07-26 08:08:41,981: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 08:08:44,421: INFO/MainProcess] Task weather.tasks.request_open_weather_map[acbc3fc8-fc76-4ca2-b510-f7e996675c91] received
+[2022-07-26 08:08:44,734: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[acbc3fc8-fc76-4ca2-b510-f7e996675c91] raised unexpected: EncodeError(TypeError('Object of type Response is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 518, in trace_task
+    task.backend.mark_as_done(
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 162, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 528, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 962, in _store_result
+    self._set_with_state(self.get_key_for_task(task_id), self.encode(meta), state)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 418, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 422, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 209, in dumps
+    with _reraise_errors(EncodeError):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 43, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.10/site-packages/kombu/exceptions.py", line 21, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
+[2022-07-26 08:10:22,605: INFO/MainProcess] Task weather.tasks.request_open_weather_map[cf7a1d32-0618-40bf-aea9-dd1ed23d98ac] received
+[2022-07-26 08:10:23,312: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[cf7a1d32-0618-40bf-aea9-dd1ed23d98ac] raised unexpected: EncodeError(TypeError('Object of type Response is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 518, in trace_task
+    task.backend.mark_as_done(
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 162, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 528, in store_result
+    self._store_result(task_id, result, state, traceback,
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 962, in _store_result
+    self._set_with_state(self.get_key_for_task(task_id), self.encode(meta), state)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 418, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.10/site-packages/celery/backends/base.py", line 422, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 209, in dumps
+    with _reraise_errors(EncodeError):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 43, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.10/site-packages/kombu/exceptions.py", line 21, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 39, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.10/site-packages/kombu/serialization.py", line 210, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 68, in dumps
+    return _dumps(s, cls=cls or _default_encoder,
+  File "/usr/local/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.10/site-packages/kombu/utils/json.py", line 58, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
+[2022-07-26 08:10:38,293: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 08:10:38,303: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 08:10:39,319: INFO/MainProcess] mingle: all alone
+[2022-07-26 08:10:39,329: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 08:10:39,331: INFO/MainProcess] celery@acad2cf60f31 ready.
+[2022-07-26 08:10:42,052: INFO/MainProcess] Task weather.tasks.request_open_weather_map[4b279377-08a3-4fb6-90fa-3e227b9e9cf8] received
+[2022-07-26 08:10:42,405: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[4b279377-08a3-4fb6-90fa-3e227b9e9cf8] succeeded in 0.3493904589995509s: 'Mi poluchili datu.'
+[2022-07-26 08:10:45,826: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 08:11:10,641: INFO/MainProcess] Task weather.tasks.request_open_weather_map[e50bb0af-a607-430c-9da2-e8223dfec901] received
+[2022-07-26 08:11:10,945: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[e50bb0af-a607-430c-9da2-e8223dfec901] succeeded in 0.2986954589996458s: 'Mi poluchili datu.'
+[2022-07-26 08:11:49,508: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 08:11:49,511: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 08:11:50,518: INFO/MainProcess] mingle: all alone
+[2022-07-26 08:11:50,529: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 08:11:50,531: INFO/MainProcess] celery@02901533afe2 ready.
+[2022-07-26 08:11:51,158: INFO/MainProcess] Task weather.tasks.request_open_weather_map[21e33590-6a7c-4308-81d8-0516d3d0a710] received
+[2022-07-26 08:11:57,129: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 08:11:58,450: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[21e33590-6a7c-4308-81d8-0516d3d0a710] succeeded in 7.287615586999891s: 'Mi poluchili datu.'
+[2022-07-26 08:12:06,716: INFO/MainProcess] Task weather.tasks.request_open_weather_map[c98ec46a-1948-4738-9cef-063ba26700f8] received
+[2022-07-26 08:12:14,056: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[c98ec46a-1948-4738-9cef-063ba26700f8] succeeded in 7.333100544999979s: 'Mi poluchili datu.'

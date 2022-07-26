@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tasks/<task_id>/', weather_views.get_status),
     path('tasks/', weather_views.run_task),
+    path('get_forecasts', weather_views.get_forecasts_for_city),
     path('', weather_views.Index.as_view())
 ]
