@@ -567,3 +567,1708 @@ kombu.exceptions.EncodeError: Object of type Response is not JSON serializable
 [2022-07-26 08:11:58,450: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[21e33590-6a7c-4308-81d8-0516d3d0a710] succeeded in 7.287615586999891s: 'Mi poluchili datu.'
 [2022-07-26 08:12:06,716: INFO/MainProcess] Task weather.tasks.request_open_weather_map[c98ec46a-1948-4738-9cef-063ba26700f8] received
 [2022-07-26 08:12:14,056: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[c98ec46a-1948-4738-9cef-063ba26700f8] succeeded in 7.333100544999979s: 'Mi poluchili datu.'
+[2022-07-26 18:07:20,943: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 18:07:20,947: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 18:07:21,955: INFO/MainProcess] mingle: all alone
+[2022-07-26 18:07:21,965: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 18:07:21,968: INFO/MainProcess] celery@f7a8c8479343 ready.
+[2022-07-26 18:07:28,400: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 18:07:55,598: INFO/MainProcess] Task weather.tasks.sleeping[b1413f1b-cf0e-4db1-8cf5-caac10e2c90d] received
+[2022-07-26 18:07:55,602: INFO/MainProcess] Task weather.tasks.sleeping[4c3b9b2e-b968-4b74-bef5-a39ba1e75641] received
+[2022-07-26 18:07:55,612: ERROR/ForkPoolWorker-3] Task weather.tasks.sleeping[4c3b9b2e-b968-4b74-bef5-a39ba1e75641] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    time.time.sleep(t)
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:07:55,617: ERROR/ForkPoolWorker-1] Task weather.tasks.sleeping[b1413f1b-cf0e-4db1-8cf5-caac10e2c90d] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    time.time.sleep(t)
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:08:31,922: INFO/MainProcess] Task weather.tasks.sleeping[cf2c6896-798c-43f5-b532-0a44749e86aa] received
+[2022-07-26 18:08:31,927: INFO/MainProcess] Task weather.tasks.sleeping[b9f39367-0ee3-4876-b5ec-8a54e57344c5] received
+[2022-07-26 18:08:31,933: ERROR/ForkPoolWorker-3] Task weather.tasks.sleeping[b9f39367-0ee3-4876-b5ec-8a54e57344c5] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    def sleeping(t=5):
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:08:31,934: ERROR/ForkPoolWorker-1] Task weather.tasks.sleeping[cf2c6896-798c-43f5-b532-0a44749e86aa] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    def sleeping(t=5):
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:09:40,248: INFO/MainProcess] Task weather.tasks.sleeping[8d50d68c-1db3-4a80-a065-377294fbdaee] received
+[2022-07-26 18:09:40,255: INFO/MainProcess] Task weather.tasks.sleeping[c803a774-fb16-4515-9163-1c71dcf8aeb8] received
+[2022-07-26 18:09:40,261: ERROR/ForkPoolWorker-3] Task weather.tasks.sleeping[c803a774-fb16-4515-9163-1c71dcf8aeb8] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    def sleeping(t=5):
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:09:40,261: ERROR/ForkPoolWorker-1] Task weather.tasks.sleeping[8d50d68c-1db3-4a80-a065-377294fbdaee] raised unexpected: AttributeError("'builtin_function_or_method' object has no attribute 'sleep'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 41, in sleeping
+    def sleeping(t=5):
+AttributeError: 'builtin_function_or_method' object has no attribute 'sleep'
+[2022-07-26 18:10:13,324: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 18:10:13,327: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 18:10:14,338: INFO/MainProcess] mingle: all alone
+[2022-07-26 18:10:14,348: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 18:10:14,350: INFO/MainProcess] celery@caf58f450395 ready.
+[2022-07-26 18:10:17,842: INFO/MainProcess] Task weather.tasks.sleeping[bd8b60c0-1e66-41f5-993b-32e4f9ae250f] received
+[2022-07-26 18:10:17,848: INFO/MainProcess] Task weather.tasks.sleeping[8d7c2423-f45e-4234-8985-75f4b661a9ae] received
+[2022-07-26 18:10:20,782: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 18:10:27,868: INFO/ForkPoolWorker-1] Task weather.tasks.sleeping[bd8b60c0-1e66-41f5-993b-32e4f9ae250f] succeeded in 10.020605087996955s: 'Done 10 secs'
+[2022-07-26 18:10:31,617: INFO/MainProcess] Task weather.tasks.sleeping[8680199e-5eac-4d25-aed9-b29396bf9f69] received
+[2022-07-26 18:10:31,631: INFO/MainProcess] Task weather.tasks.sleeping[088a5055-29f4-487f-82cc-339d1f627c55] received
+[2022-07-26 18:10:32,868: INFO/ForkPoolWorker-3] Task weather.tasks.sleeping[8d7c2423-f45e-4234-8985-75f4b661a9ae] succeeded in 15.016101798999443s: 'Done 15 secs'
+[2022-07-26 18:10:41,643: INFO/ForkPoolWorker-1] Task weather.tasks.sleeping[8680199e-5eac-4d25-aed9-b29396bf9f69] succeeded in 10.006248795998545s: 'Done 10 secs'
+[2022-07-26 18:10:46,663: INFO/ForkPoolWorker-2] Task weather.tasks.sleeping[088a5055-29f4-487f-82cc-339d1f627c55] succeeded in 15.025166423998598s: 'Done 15 secs'
+[2022-07-26 18:11:54,645: INFO/MainProcess] Task weather.tasks.sleeping[ab44c0fd-e0f6-4025-9a59-433435a428be] received
+[2022-07-26 18:11:54,650: INFO/MainProcess] Task weather.tasks.sleeping[d311fd8f-8b3a-46ae-9b3f-054378623c90] received
+[2022-07-26 18:12:14,668: INFO/ForkPoolWorker-1] Task weather.tasks.sleeping[ab44c0fd-e0f6-4025-9a59-433435a428be] succeeded in 20.014156133998767s: 'Done 20 secs'
+[2022-07-26 18:12:19,685: INFO/ForkPoolWorker-3] Task weather.tasks.sleeping[d311fd8f-8b3a-46ae-9b3f-054378623c90] succeeded in 25.03212680300203s: 'Done 25 secs'
+[2022-07-26 18:13:01,355: INFO/MainProcess] Task weather.tasks.sleeping[b3434d46-4484-4477-9e0a-99857ac193b8] received
+[2022-07-26 18:13:01,366: INFO/MainProcess] Task weather.tasks.sleeping[8642d58f-57da-4782-8b6e-eaafea89a642] received
+[2022-07-26 18:13:21,387: INFO/ForkPoolWorker-1] Task weather.tasks.sleeping[b3434d46-4484-4477-9e0a-99857ac193b8] succeeded in 20.01195163399825s: 'Done 20 secs'
+[2022-07-26 18:13:26,391: INFO/ForkPoolWorker-3] Task weather.tasks.sleeping[8642d58f-57da-4782-8b6e-eaafea89a642] succeeded in 25.015674885999033s: 'Done 25 secs'
+[2022-07-26 18:17:15,861: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 18:17:15,867: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 18:17:16,875: INFO/MainProcess] mingle: all alone
+[2022-07-26 18:17:16,891: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 18:17:16,893: INFO/MainProcess] celery@caf58f450395 ready.
+[2022-07-26 18:17:24,184: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 18:29:13,210: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 18:29:13,214: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 18:29:14,222: INFO/MainProcess] mingle: all alone
+[2022-07-26 18:29:14,232: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 18:29:14,235: INFO/MainProcess] celery@caf58f450395 ready.
+[2022-07-26 18:29:21,444: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 18:29:43,601: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 18:29:43,606: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 18:29:44,614: INFO/MainProcess] mingle: all alone
+[2022-07-26 18:29:44,622: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 18:29:44,623: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-26 18:29:51,665: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-26 20:06:05,395: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-26 20:06:05,398: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-26 20:06:06,407: INFO/MainProcess] mingle: all alone
+[2022-07-26 20:06:06,417: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-26 20:06:06,419: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-26 20:06:14,318: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 06:08:40,226: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 06:08:40,233: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 06:08:41,243: INFO/MainProcess] mingle: all alone
+[2022-07-27 06:08:41,257: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 06:08:41,261: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 06:08:48,744: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 06:12:13,437: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7d41dee9-4634-48de-92a0-7fdbec5d0742] received
+[2022-07-27 06:12:15,113: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[7d41dee9-4634-48de-92a0-7fdbec5d0742] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 06:47:44,388: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ce4737da-a33a-433b-9897-8e1d3989d904] received
+[2022-07-27 06:47:46,618: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[ce4737da-a33a-433b-9897-8e1d3989d904] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 06:50:17,280: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a6ea0bc7-fde4-401d-becb-c33915e31ad6] received
+[2022-07-27 06:50:18,003: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[a6ea0bc7-fde4-401d-becb-c33915e31ad6] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:03:32,651: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[df924297-3557-48bd-bf54-bd6ddcb02c86] received
+[2022-07-27 07:03:33,361: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[df924297-3557-48bd-bf54-bd6ddcb02c86] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:06:02,841: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[29aa2673-43a1-4cb6-9e8e-f46576145d96] received
+[2022-07-27 07:06:03,580: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[29aa2673-43a1-4cb6-9e8e-f46576145d96] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:06:56,510: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[2d571101-7741-44e6-900b-cdc1e121de01] received
+[2022-07-27 07:06:57,222: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[2d571101-7741-44e6-900b-cdc1e121de01] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:08:00,837: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[88f20a1e-12cd-4c4c-b284-34e254f3e09b] received
+[2022-07-27 07:08:01,529: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[88f20a1e-12cd-4c4c-b284-34e254f3e09b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:10:29,660: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[4ede2e1a-5d9e-482d-96a8-acb8b09da68d] received
+[2022-07-27 07:10:30,323: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[4ede2e1a-5d9e-482d-96a8-acb8b09da68d] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:10:34,130: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[afc62049-e6a4-48e9-8248-5dbec30b3117] received
+[2022-07-27 07:10:34,850: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[afc62049-e6a4-48e9-8248-5dbec30b3117] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:12:04,680: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9e3136af-dc52-4388-b909-a73a65925d54] received
+[2022-07-27 07:12:05,343: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[9e3136af-dc52-4388-b909-a73a65925d54] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:13:56,991: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[64ebe2be-7c32-453c-8655-3a16ea7692b5] received
+[2022-07-27 07:13:57,677: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[64ebe2be-7c32-453c-8655-3a16ea7692b5] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:14:35,436: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[37f6839b-fefb-47e4-95e5-62a7825a606a] received
+[2022-07-27 07:14:36,078: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[37f6839b-fefb-47e4-95e5-62a7825a606a] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:17:22,790: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[98a6bd2f-e9e3-472d-86be-7c55b53aeeac] received
+[2022-07-27 07:17:23,507: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[98a6bd2f-e9e3-472d-86be-7c55b53aeeac] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:17:58,577: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f5318206-d68d-47f6-9cfb-bb58ff51aa4b] received
+[2022-07-27 07:17:59,242: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f5318206-d68d-47f6-9cfb-bb58ff51aa4b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:18:43,846: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[008aafe6-57cc-4411-9123-19018183f5c8] received
+[2022-07-27 07:18:44,516: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[008aafe6-57cc-4411-9123-19018183f5c8] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:19:03,432: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[971aa3c8-382a-4c3d-8827-a0c9fac4cf9b] received
+[2022-07-27 07:19:04,162: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[971aa3c8-382a-4c3d-8827-a0c9fac4cf9b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:20:19,676: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[c3e214bb-9d3f-4d20-a844-b15039f749d3] received
+[2022-07-27 07:20:20,337: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[c3e214bb-9d3f-4d20-a844-b15039f749d3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:21:06,775: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[741db84d-ac5a-4dd5-a0c0-cd3109a1f3be] received
+[2022-07-27 07:21:07,451: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[741db84d-ac5a-4dd5-a0c0-cd3109a1f3be] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:22:04,416: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f84aeec2-0a71-4e46-b670-9e0aa15a9101] received
+[2022-07-27 07:22:05,204: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f84aeec2-0a71-4e46-b670-9e0aa15a9101] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:22:41,494: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[fc661f07-e52b-4eb6-9c1c-866760a1eccc] received
+[2022-07-27 07:22:42,276: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[fc661f07-e52b-4eb6-9c1c-866760a1eccc] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:23:06,345: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[bc5dea2e-c8ff-4351-8de5-a326ddc1a56f] received
+[2022-07-27 07:23:07,980: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[bc5dea2e-c8ff-4351-8de5-a326ddc1a56f] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    current_weather = {
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:24:21,702: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[523be821-efa2-4635-9070-4a5a46a2ec2e] received
+[2022-07-27 07:24:21,705: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[18bc3785-4d4f-4768-95d2-99c6f468a13a] received
+[2022-07-27 07:24:22,379: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[18bc3785-4d4f-4768-95d2-99c6f468a13a] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:24:22,387: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[523be821-efa2-4635-9070-4a5a46a2ec2e] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:24:28,972: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[cbcaf5d6-fc21-4b36-83c2-aef33f32ab4a] received
+[2022-07-27 07:24:28,977: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ef3c3f71-60c0-4655-b9e9-e1e333daace3] received
+[2022-07-27 07:24:29,689: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[cbcaf5d6-fc21-4b36-83c2-aef33f32ab4a] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:24:29,690: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[ef3c3f71-60c0-4655-b9e9-e1e333daace3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:25:17,865: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[aeb1b27b-f195-4a62-adb9-d7fcbc3f4f87] received
+[2022-07-27 07:25:17,868: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[2664687d-48ec-401a-a6bf-1420720518b3] received
+[2022-07-27 07:25:18,540: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[2664687d-48ec-401a-a6bf-1420720518b3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:25:18,540: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[aeb1b27b-f195-4a62-adb9-d7fcbc3f4f87] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:26:42,094: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[91987999-84f2-437e-bfad-e0eea95b6db1] received
+[2022-07-27 07:26:43,223: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[91987999-84f2-437e-bfad-e0eea95b6db1] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:26:45,902: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9bfba276-675f-44f2-8c24-d2c1abb9e771] received
+[2022-07-27 07:26:46,609: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[9bfba276-675f-44f2-8c24-d2c1abb9e771] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:30:17,425: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[932de21c-7f01-4756-bd1b-0f288774f81b] received
+[2022-07-27 07:30:17,428: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[22e12101-ced6-4490-bb79-815553098448] received
+[2022-07-27 07:30:18,726: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[932de21c-7f01-4756-bd1b-0f288774f81b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:30:18,726: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[22e12101-ced6-4490-bb79-815553098448] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:30:33,014: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[83637a9a-aa82-4d1e-abe2-4350ab6e0aa5] received
+[2022-07-27 07:30:33,018: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ed44ce92-6a65-4cc2-af2c-a27695fdffdc] received
+[2022-07-27 07:30:33,681: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[83637a9a-aa82-4d1e-abe2-4350ab6e0aa5] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:30:33,682: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[ed44ce92-6a65-4cc2-af2c-a27695fdffdc] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:54:32,102: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[fa81f87a-2e71-4140-b381-365fd238f6cc] received
+[2022-07-27 07:54:32,111: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[0c116a3d-2ad3-44e4-bf8a-0698e0255005] received
+[2022-07-27 07:54:33,407: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[fa81f87a-2e71-4140-b381-365fd238f6cc] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:54:34,126: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[0c116a3d-2ad3-44e4-bf8a-0698e0255005] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:56:19,922: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[6a98b7c4-5533-4687-8c46-1d6ab919e522] received
+[2022-07-27 07:56:19,925: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[5fc8f03e-b6ee-4bf6-8a11-b93c4ace71aa] received
+[2022-07-27 07:56:20,563: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[6a98b7c4-5533-4687-8c46-1d6ab919e522] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:56:20,641: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[5fc8f03e-b6ee-4bf6-8a11-b93c4ace71aa] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:57:09,175: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[740aef6d-ab1b-49ec-ae01-0fd34ff258ff] received
+[2022-07-27 07:57:09,179: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[70cb2791-af80-4c6f-8aaa-d3501a7de60e] received
+[2022-07-27 07:57:09,921: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[70cb2791-af80-4c6f-8aaa-d3501a7de60e] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 07:57:09,921: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[740aef6d-ab1b-49ec-ae01-0fd34ff258ff] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:00:27,002: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[4a31cab2-92ba-4ce9-b291-bf5a7b6dd1d3] received
+[2022-07-27 08:00:27,006: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[11c327ca-9661-4589-a7f5-2257aa69858b] received
+[2022-07-27 08:00:27,674: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[4a31cab2-92ba-4ce9-b291-bf5a7b6dd1d3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:00:27,697: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[11c327ca-9661-4589-a7f5-2257aa69858b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:02:10,268: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[edd46759-e35c-4cce-b375-f25b4738447d] received
+[2022-07-27 08:02:10,274: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[390296dd-3976-485e-9a3b-964059d224ac] received
+[2022-07-27 08:02:10,879: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[edd46759-e35c-4cce-b375-f25b4738447d] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:02:10,941: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[390296dd-3976-485e-9a3b-964059d224ac] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:04:19,964: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[4b5099b9-6638-4b5b-a0e1-622de2bbbb11] received
+[2022-07-27 08:04:19,973: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ad11010d-cedb-4930-8538-90c227025daa] received
+[2022-07-27 08:04:20,636: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[ad11010d-cedb-4930-8538-90c227025daa] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:04:20,636: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[4b5099b9-6638-4b5b-a0e1-622de2bbbb11] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:05:17,999: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f804b1d0-05c7-45e0-bd53-3dff89335bc5] received
+[2022-07-27 08:05:18,005: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[902ccac9-21f6-47ab-9449-c0a2ddf5b104] received
+[2022-07-27 08:05:18,639: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[902ccac9-21f6-47ab-9449-c0a2ddf5b104] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:05:18,639: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f804b1d0-05c7-45e0-bd53-3dff89335bc5] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:07:09,471: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[981571f9-a3bb-4f90-b187-e895b2e49ccc] received
+[2022-07-27 08:07:09,478: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[94dd8024-64fa-4209-baea-1d68307b1a2f] received
+[2022-07-27 08:07:10,724: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[981571f9-a3bb-4f90-b187-e895b2e49ccc] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:07:10,761: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[94dd8024-64fa-4209-baea-1d68307b1a2f] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:07:44,498: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[579fab50-6009-4343-9ad1-4ff019e5f306] received
+[2022-07-27 08:07:44,502: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d2547487-e9e5-4ea5-9edd-fa2b9a7321e3] received
+[2022-07-27 08:07:45,240: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[579fab50-6009-4343-9ad1-4ff019e5f306] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:07:45,242: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[d2547487-e9e5-4ea5-9edd-fa2b9a7321e3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:15,916: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d897f308-b96c-4923-89dc-f3a03c831bf6] received
+[2022-07-27 08:09:15,925: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ac9edc7b-9677-4ff3-8963-ee5cb0943244] received
+[2022-07-27 08:09:16,545: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[d897f308-b96c-4923-89dc-f3a03c831bf6] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:16,549: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[ac9edc7b-9677-4ff3-8963-ee5cb0943244] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:51,089: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[795d345e-7d86-4705-8e38-16206f83128c] received
+[2022-07-27 08:09:51,094: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[aaea4457-e3be-4a17-bd43-229d7225cb18] received
+[2022-07-27 08:09:51,779: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[795d345e-7d86-4705-8e38-16206f83128c] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:51,783: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[aaea4457-e3be-4a17-bd43-229d7225cb18] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:56,219: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[44d59fe5-fe35-4d2b-bbea-4f618cad23a8] received
+[2022-07-27 08:09:56,232: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[163b141b-5df8-44c2-ab38-12cf9c77382c] received
+[2022-07-27 08:09:56,910: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[163b141b-5df8-44c2-ab38-12cf9c77382c] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:09:56,910: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[44d59fe5-fe35-4d2b-bbea-4f618cad23a8] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:10:15,897: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ced112de-d239-42b3-a4d2-cae20c7c1658] received
+[2022-07-27 08:10:15,902: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[199084a3-95db-45fe-8c79-09fb0f3585dc] received
+[2022-07-27 08:10:16,512: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[ced112de-d239-42b3-a4d2-cae20c7c1658] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:10:16,604: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[199084a3-95db-45fe-8c79-09fb0f3585dc] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:10:59,196: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[de6903b5-f744-492b-a6a4-d38d425fb12d] received
+[2022-07-27 08:10:59,201: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[de138d07-82ee-475d-8c3e-39323328242c] received
+[2022-07-27 08:10:59,913: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[de6903b5-f744-492b-a6a4-d38d425fb12d] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:10:59,917: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[de138d07-82ee-475d-8c3e-39323328242c] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:11:43,751: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d4fd06f7-3336-4838-8720-f5a2fde3d720] received
+[2022-07-27 08:11:43,756: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[33712d24-b8c9-477c-a044-65e1a63139c8] received
+[2022-07-27 08:11:44,446: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[33712d24-b8c9-477c-a044-65e1a63139c8] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:11:44,446: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[d4fd06f7-3336-4838-8720-f5a2fde3d720] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:13:49,521: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[e031516e-b4ac-4431-ac95-ac88891af511] received
+[2022-07-27 08:13:49,527: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9864d1b6-7fff-4cb7-bb12-bf8da8e74819] received
+[2022-07-27 08:13:50,183: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[9864d1b6-7fff-4cb7-bb12-bf8da8e74819] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:13:50,183: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[e031516e-b4ac-4431-ac95-ac88891af511] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:18:55,744: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[6ca42004-209c-410f-bad8-857732db35b7] received
+[2022-07-27 08:18:55,750: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f9b20288-4d7f-4946-add5-d1e9fb7ceab3] received
+[2022-07-27 08:18:56,371: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[6ca42004-209c-410f-bad8-857732db35b7] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:18:56,379: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[f9b20288-4d7f-4946-add5-d1e9fb7ceab3] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:20:51,374: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[bdef0c71-c66c-431d-a079-ad04d1bf0341] received
+[2022-07-27 08:20:51,380: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[62cc87a6-913a-483e-b3b8-99118a1869bf] received
+[2022-07-27 08:20:52,587: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[bdef0c71-c66c-431d-a079-ad04d1bf0341] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:20:52,589: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[62cc87a6-913a-483e-b3b8-99118a1869bf] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:24:28,961: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[1c74daf5-c581-4746-9153-f19f5d754d30] received
+[2022-07-27 08:24:28,965: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[001a14db-e179-46d4-8ac0-fb42d551144f] received
+[2022-07-27 08:24:29,673: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[001a14db-e179-46d4-8ac0-fb42d551144f] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:24:29,673: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[1c74daf5-c581-4746-9153-f19f5d754d30] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:26:11,542: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[589da89d-3c2d-4629-b0ad-042cbfae14de] received
+[2022-07-27 08:26:11,546: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a0131c89-24f3-4e83-a1e4-574081ddbcd0] received
+[2022-07-27 08:26:12,179: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[a0131c89-24f3-4e83-a1e4-574081ddbcd0] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:26:12,179: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[589da89d-3c2d-4629-b0ad-042cbfae14de] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:27:38,437: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[636d9e05-02cb-4b16-8e7a-497e4a77b339] received
+[2022-07-27 08:27:38,441: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[06c427bc-98e8-4127-8f02-3b688614464a] received
+[2022-07-27 08:27:39,134: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[636d9e05-02cb-4b16-8e7a-497e4a77b339] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:27:39,136: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[06c427bc-98e8-4127-8f02-3b688614464a] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:29:38,991: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[2b926896-e82f-4d8e-80a2-c35ab7e74b46] received
+[2022-07-27 08:29:38,994: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7a4dc424-91f5-43fb-ba8d-90f72a61931c] received
+[2022-07-27 08:29:39,650: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[7a4dc424-91f5-43fb-ba8d-90f72a61931c] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:29:39,650: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[2b926896-e82f-4d8e-80a2-c35ab7e74b46] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:29:45,071: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a0b0bde9-4ef0-44bf-9ca2-bd84998d3a62] received
+[2022-07-27 08:29:45,076: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9b49e027-c8c8-42eb-8c78-4ea378e1a2ef] received
+[2022-07-27 08:29:45,806: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[9b49e027-c8c8-42eb-8c78-4ea378e1a2ef] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:29:45,806: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[a0b0bde9-4ef0-44bf-9ca2-bd84998d3a62] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:30:11,486: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[af8aee08-24d1-433e-b330-47a67a6178e2] received
+[2022-07-27 08:30:11,493: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[80b286af-c3df-41e4-a7f3-02a26f36d0d8] received
+[2022-07-27 08:30:12,094: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[af8aee08-24d1-433e-b330-47a67a6178e2] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:30:12,097: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[80b286af-c3df-41e4-a7f3-02a26f36d0d8] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:30:43,194: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[eeba7dda-c297-4849-b5d3-b30f4166189b] received
+[2022-07-27 08:30:43,201: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[411dcc52-d1a9-49b2-b485-8db527f62aca] received
+[2022-07-27 08:30:43,816: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[411dcc52-d1a9-49b2-b485-8db527f62aca] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:30:43,825: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[eeba7dda-c297-4849-b5d3-b30f4166189b] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:32:02,322: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f636c419-c7d8-4eca-a2b4-1b87bcdbda7c] received
+[2022-07-27 08:32:02,327: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[07e98919-3bd7-4a93-9cb3-9a257eae6657] received
+[2022-07-27 08:32:03,032: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f636c419-c7d8-4eca-a2b4-1b87bcdbda7c] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:32:03,032: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[07e98919-3bd7-4a93-9cb3-9a257eae6657] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:33:51,411: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[02b77359-7d46-481b-98ea-88a917e53174] received
+[2022-07-27 08:33:51,415: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[383fa108-6338-47f6-90b6-4ffb9bc133ee] received
+[2022-07-27 08:33:52,681: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[02b77359-7d46-481b-98ea-88a917e53174] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:33:52,682: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[383fa108-6338-47f6-90b6-4ffb9bc133ee] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:34:07,935: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[ac71ef03-184e-426e-a349-a10e31bfe9f8] received
+[2022-07-27 08:34:07,940: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[54cb759e-69ab-4879-8023-29c7ba021a93] received
+[2022-07-27 08:34:08,654: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[54cb759e-69ab-4879-8023-29c7ba021a93] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:34:08,654: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[ac71ef03-184e-426e-a349-a10e31bfe9f8] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:34:36,653: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[78286df2-474a-4700-b3cc-674231d5cc38] received
+[2022-07-27 08:34:36,657: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[808dd5bb-d8cd-4889-b7f5-92f5a2c086b6] received
+[2022-07-27 08:34:37,290: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[78286df2-474a-4700-b3cc-674231d5cc38] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:34:37,294: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[808dd5bb-d8cd-4889-b7f5-92f5a2c086b6] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:35:25,408: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9642aa2f-d4ab-4f44-bfa3-dc12ef0cbf11] received
+[2022-07-27 08:35:25,412: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[e0c27c27-2bb3-4c31-bf10-0650ad21e87d] received
+[2022-07-27 08:35:26,080: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[e0c27c27-2bb3-4c31-bf10-0650ad21e87d] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:35:26,082: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[9642aa2f-d4ab-4f44-bfa3-dc12ef0cbf11] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:35:28,703: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[62ff0e10-8ed1-4cdc-9316-c664ac5b0f41] received
+[2022-07-27 08:35:28,709: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d7fd111a-38ee-479f-b14c-332c02c72620] received
+[2022-07-27 08:35:29,368: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[62ff0e10-8ed1-4cdc-9316-c664ac5b0f41] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 08:35:29,369: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[d7fd111a-38ee-479f-b14c-332c02c72620] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 51, in request_yahoo_weather
+    'source': 'yahoo_weather',
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:03:01,893: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:03:01,900: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:03:02,911: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:03:02,921: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 17:03:02,923: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 17:03:10,940: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 17:05:43,704: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[581a9d41-cd8e-48d2-b815-da9d2aa8597d] received
+[2022-07-27 17:05:43,707: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[afda925c-6eb7-445f-ba56-51010ba80817] received
+[2022-07-27 17:05:43,717: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[581a9d41-cd8e-48d2-b815-da9d2aa8597d] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+NameError: name 'url' is not defined
+[2022-07-27 17:05:43,717: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[afda925c-6eb7-445f-ba56-51010ba80817] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+NameError: name 'url' is not defined
+[2022-07-27 17:11:07,855: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[11817a82-a9f8-4e24-9173-bdf532eee920] received
+[2022-07-27 17:11:07,859: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d75d61c9-c8b5-4a97-a810-d814b2e8cb0d] received
+[2022-07-27 17:11:07,865: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[11817a82-a9f8-4e24-9173-bdf532eee920] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+NameError: name 'url' is not defined
+[2022-07-27 17:11:07,867: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[d75d61c9-c8b5-4a97-a810-d814b2e8cb0d] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+NameError: name 'url' is not defined
+[2022-07-27 17:11:52,299: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7fc2a123-7f6e-4628-b30f-18d2f6fe9fa4] received
+[2022-07-27 17:11:52,303: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[12f60cfb-be82-4c72-bbd7-db6fdeb4aee7] received
+[2022-07-27 17:11:52,311: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[7fc2a123-7f6e-4628-b30f-18d2f6fe9fa4] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+NameError: name 'url' is not defined
+[2022-07-27 17:11:52,310: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[12f60cfb-be82-4c72-bbd7-db6fdeb4aee7] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+NameError: name 'url' is not defined
+[2022-07-27 17:13:10,756: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[5726cb04-1004-4a32-8381-ae59ada2095d] received
+[2022-07-27 17:13:10,759: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[4192b2d5-98f6-44fa-bcf9-c8b07a173645] received
+[2022-07-27 17:13:10,764: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[4192b2d5-98f6-44fa-bcf9-c8b07a173645] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+NameError: name 'url' is not defined
+[2022-07-27 17:13:10,765: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[5726cb04-1004-4a32-8381-ae59ada2095d] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 48, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+NameError: name 'url' is not defined
+[2022-07-27 17:15:52,678: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 332, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.10/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 628, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.10/site-packages/kombu/asynchronous/hub.py", line 362, in create_loop
+    cb(*cbargs)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 1326, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 562, in on_readable
+    chan.handlers[type]()
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 906, in _receive
+    ret.append(self._receive_one(c))
+  File "/usr/local/lib/python3.10/site-packages/kombu/transport/redis.py", line 916, in _receive_one
+    response = c.parse_response()
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1500, in parse_response
+    response = self._execute(conn, conn.read_response)
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1482, in _execute
+    return conn.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1484, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1471, in _disconnect_raise_connect
+    raise error
+  File "/usr/local/lib/python3.10/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/usr/local/lib/python3.10/site-packages/redis/client.py", line 1483, in <lambda>
+    lambda: command(*args, **kwargs),
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 824, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 318, in read_response
+    raw = self._buffer.readline()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 249, in readline
+    self._read_from_socket()
+  File "/usr/local/lib/python3.10/site-packages/redis/connection.py", line 195, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2022-07-27 17:15:52,683: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py:367: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered back to the queue.
+You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss setting.
+In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2022-07-27 17:15:52,690: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error 111 connecting to redis:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2022-07-27 17:15:54,701: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:15:54,708: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:15:55,715: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:16:00,387: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:16:00,392: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:16:01,402: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:16:01,415: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 17:16:01,417: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 17:16:06,566: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:16:06,570: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:16:07,580: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:16:07,590: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 17:16:07,593: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 17:16:14,330: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 17:18:23,241: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[68fc4f63-6530-4e1c-828a-8ca523eb2f6e] received
+[2022-07-27 17:18:23,244: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7acce7c6-8eb0-444a-bd48-dcaf2c32690c] received
+[2022-07-27 17:18:23,255: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[7acce7c6-8eb0-444a-bd48-dcaf2c32690c] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:18:23,257: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[68fc4f63-6530-4e1c-828a-8ca523eb2f6e] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:19:45,803: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[25dadaf6-a398-4851-88be-b2883f11057b] received
+[2022-07-27 17:19:45,806: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[dcb9c47f-f037-4406-a78c-2e678be75bb6] received
+[2022-07-27 17:19:45,812: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[25dadaf6-a398-4851-88be-b2883f11057b] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:19:45,812: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[dcb9c47f-f037-4406-a78c-2e678be75bb6] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:20:16,628: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a50e4d90-524a-48f0-a723-6775d6d6082b] received
+[2022-07-27 17:20:16,633: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[52437d46-76f8-4777-9731-b9ef91dc0d77] received
+[2022-07-27 17:20:16,637: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[52437d46-76f8-4777-9731-b9ef91dc0d77] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:20:16,642: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[a50e4d90-524a-48f0-a723-6775d6d6082b] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:30:25,205: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a53c7e93-9b12-45c4-aa0a-5a5eb40d14e0] received
+[2022-07-27 17:30:25,208: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[e56f6e64-6215-4abf-ac0b-b22d159fcd3a] received
+[2022-07-27 17:30:25,213: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[e56f6e64-6215-4abf-ac0b-b22d159fcd3a] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:30:25,214: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[a53c7e93-9b12-45c4-aa0a-5a5eb40d14e0] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:30:49,748: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:30:49,753: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:30:50,762: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:30:50,784: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 17:30:50,786: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 17:30:54,326: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 17:31:01,986: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[dd48d5c9-cee7-4a0d-b8e8-fc297fd25838] received
+[2022-07-27 17:31:02,001: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[fe31ae45-b38f-404a-bef9-bc29b14a4e0c] received
+[2022-07-27 17:31:02,019: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[fe31ae45-b38f-404a-bef9-bc29b14a4e0c] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:31:02,019: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[dd48d5c9-cee7-4a0d-b8e8-fc297fd25838] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:32:52,817: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[8d066937-ca1b-4315-b109-ef39e3931a9d] received
+[2022-07-27 17:32:52,820: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7aba10d9-06da-45c1-acac-96e2b473d064] received
+[2022-07-27 17:32:52,823: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[7aba10d9-06da-45c1-acac-96e2b473d064] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:32:52,824: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[8d066937-ca1b-4315-b109-ef39e3931a9d] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:34,209: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a436ee47-35b2-4ed6-a00e-d270b5c0fe74] received
+[2022-07-27 17:35:34,215: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[d83c4080-9cbe-4709-8af4-759d0eb48497] received
+[2022-07-27 17:35:34,222: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[a436ee47-35b2-4ed6-a00e-d270b5c0fe74] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:34,222: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[d83c4080-9cbe-4709-8af4-759d0eb48497] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:55,625: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a5b2d540-a22c-4cff-b5df-05dbb918b7ef] received
+[2022-07-27 17:35:55,630: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[9aa54a02-d828-42da-83c3-de4e6a9d3ca9] received
+[2022-07-27 17:35:55,638: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[a5b2d540-a22c-4cff-b5df-05dbb918b7ef] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:55,638: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[9aa54a02-d828-42da-83c3-de4e6a9d3ca9] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:59,754: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f94ff063-d8fc-40d1-8c23-517434659e4d] received
+[2022-07-27 17:35:59,761: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[f94ff063-d8fc-40d1-8c23-517434659e4d] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:35:59,759: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[8be0ef42-55ea-4937-b160-1fb77108fb2e] received
+[2022-07-27 17:35:59,769: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[8be0ef42-55ea-4937-b160-1fb77108fb2e] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:36:15,604: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[05116f04-d94b-41d0-b704-7e21fb3ca2d9] received
+[2022-07-27 17:36:15,610: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a8b7e800-cec7-4e3b-9ebe-4059a48cf6a1] received
+[2022-07-27 17:36:15,620: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[05116f04-d94b-41d0-b704-7e21fb3ca2d9] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:36:15,621: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[a8b7e800-cec7-4e3b-9ebe-4059a48cf6a1] raised unexpected: InvalidSchema("No connection adapters were found for 'htttps://yandex.ru'")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 49, in request_yahoo_weather
+    data_json = request("GET", url, headers=headers, params=querystring)
+  File "/usr/local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 695, in send
+    adapter = self.get_adapter(url=request.url)
+  File "/usr/local/lib/python3.10/site-packages/requests/sessions.py", line 792, in get_adapter
+    raise InvalidSchema(f"No connection adapters were found for {url!r}")
+requests.exceptions.InvalidSchema: No connection adapters were found for 'htttps://yandex.ru'
+[2022-07-27 17:37:36,104: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 17:37:36,108: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 17:37:37,118: INFO/MainProcess] mingle: all alone
+[2022-07-27 17:37:37,133: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 17:37:37,134: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 17:37:39,330: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 17:37:55,966: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[5f5e90a1-22d3-4ccb-950b-dfa86bcf933e] received
+[2022-07-27 17:37:55,968: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[7d5cfe10-17e9-42ea-9631-41c348ef1ed9] received
+[2022-07-27 17:37:56,700: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[7d5cfe10-17e9-42ea-9631-41c348ef1ed9] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:37:56,700: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[5f5e90a1-22d3-4ccb-950b-dfa86bcf933e] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:38:51,578: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f5b9f411-9c03-4fa0-bd16-37d4b2981741] received
+[2022-07-27 17:38:51,583: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[5b6527ba-bfa4-4223-a20a-95310310d137] received
+[2022-07-27 17:38:52,320: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[5b6527ba-bfa4-4223-a20a-95310310d137] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:38:52,322: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[f5b9f411-9c03-4fa0-bd16-37d4b2981741] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:39:17,535: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[74cb9f66-da88-4730-82cb-76575c90901e] received
+[2022-07-27 17:39:17,544: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[64a29797-6eef-4a2d-bb36-4b2c2f0cb7ef] received
+[2022-07-27 17:39:18,209: ERROR/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[74cb9f66-da88-4730-82cb-76575c90901e] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:39:18,209: ERROR/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[64a29797-6eef-4a2d-bb36-4b2c2f0cb7ef] raised unexpected: TypeError("'NoneType' object is not subscriptable")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 53, in request_yahoo_weather
+    'temp': data['current_observation']['condition']['temperature'],
+TypeError: 'NoneType' object is not subscriptable
+[2022-07-27 17:50:57,758: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[51258d9a-f45e-470c-8714-3b00d35fe011] received
+[2022-07-27 17:50:57,764: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[997ce54e-3cf7-49e6-8579-9a2739b04c82] received
+[2022-07-27 17:50:58,960: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[51258d9a-f45e-470c-8714-3b00d35fe011] succeeded in 1.1971301250014221s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:50:59,147: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[997ce54e-3cf7-49e6-8579-9a2739b04c82] succeeded in 1.3793821259969263s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:51:41,987: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[603ad2d1-551e-4170-bd18-4acfa6d3772a] received
+[2022-07-27 17:51:41,995: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[50872a7d-5653-4353-8a12-41e0df8956da] received
+[2022-07-27 17:51:43,108: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[50872a7d-5653-4353-8a12-41e0df8956da] succeeded in 1.1077032499961206s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:51:43,108: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[603ad2d1-551e-4170-bd18-4acfa6d3772a] succeeded in 1.1101568340018275s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:52:48,375: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[acc18a9d-ada6-40df-8754-c537e185dba1] received
+[2022-07-27 17:52:48,380: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[8832653e-54a8-4feb-a7a2-628c0b77f6c1] received
+[2022-07-27 17:52:49,418: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[acc18a9d-ada6-40df-8754-c537e185dba1] succeeded in 1.0364633329954813s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:52:49,463: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[8832653e-54a8-4feb-a7a2-628c0b77f6c1] succeeded in 1.0806899169983808s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:53:09,412: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[0e74a3c4-d93b-40af-8814-4fed28ee1d24] received
+[2022-07-27 17:53:09,416: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[012fa81e-d044-40dc-88e9-2ac89d79e5e2] received
+[2022-07-27 17:53:10,434: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[012fa81e-d044-40dc-88e9-2ac89d79e5e2] succeeded in 1.012430167000275s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:53:10,491: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[0e74a3c4-d93b-40af-8814-4fed28ee1d24] succeeded in 1.06967433400132s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 17:53:48,027: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a155e023-d8f0-4464-b64e-809248816a4e] received
+[2022-07-27 17:53:49,260: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[a155e023-d8f0-4464-b64e-809248816a4e] succeeded in 1.2297524590030662s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
