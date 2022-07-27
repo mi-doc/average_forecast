@@ -2272,3 +2272,178 @@ TypeError: 'NoneType' object is not subscriptable
 [2022-07-27 17:53:10,491: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[0e74a3c4-d93b-40af-8814-4fed28ee1d24] succeeded in 1.06967433400132s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
 [2022-07-27 17:53:48,027: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[a155e023-d8f0-4464-b64e-809248816a4e] received
 [2022-07-27 17:53:49,260: INFO/ForkPoolWorker-3] Task weather.tasks.request_yahoo_weather[a155e023-d8f0-4464-b64e-809248816a4e] succeeded in 1.2297524590030662s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Partly Cloudy', 'wind_direction': 180, 'wind_speed': 4.8, 'humidity': 53, 'pressure': 993}
+[2022-07-27 20:44:05,807: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 20:44:05,812: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 20:44:06,822: INFO/MainProcess] mingle: all alone
+[2022-07-27 20:44:06,834: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 20:44:06,835: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 20:44:13,937: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:03:55,500: INFO/MainProcess] Task weather.tasks.request_open_weather_map[cf637ce2-7c06-4d52-a62c-221fb1f3c54b] received
+[2022-07-27 21:03:55,509: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[cf637ce2-7c06-4d52-a62c-221fb1f3c54b] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 33, in request_open_weather_map
+    @shared_task
+NameError: name 'url' is not defined
+[2022-07-27 21:04:33,731: INFO/MainProcess] Task weather.tasks.request_open_weather_map[a6deb866-d9ae-48ff-8d06-2f1014f747a6] received
+[2022-07-27 21:04:33,744: ERROR/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[a6deb866-d9ae-48ff-8d06-2f1014f747a6] raised unexpected: NameError("name 'url' is not defined")
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/average_forecast/weather/tasks.py", line 33, in request_open_weather_map
+    @shared_task
+NameError: name 'url' is not defined
+[2022-07-27 21:05:06,988: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:05:06,991: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:05:08,001: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:05:08,014: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:05:08,015: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:05:08,912: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:05:15,311: INFO/MainProcess] Task weather.tasks.request_open_weather_map[1f70a832-a267-4c09-adfe-bd22600f296e] received
+[2022-07-27 21:05:15,607: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[1f70a832-a267-4c09-adfe-bd22600f296e] succeeded in 0.28899870900204405s: {}
+[2022-07-27 21:05:50,639: INFO/MainProcess] Task weather.tasks.request_open_weather_map[d2c5d794-ac12-4c46-a1f8-82ad33583c03] received
+[2022-07-27 21:05:50,897: INFO/ForkPoolWorker-1] Task weather.tasks.request_open_weather_map[d2c5d794-ac12-4c46-a1f8-82ad33583c03] succeeded in 0.25383983299980173s: {}
+[2022-07-27 21:08:00,157: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:08:00,164: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:08:01,174: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:08:01,189: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:08:01,190: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:08:03,920: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:21:02,480: ERROR/MainProcess] Received unregistered task of type 'weather.tasks.request_weatherapi'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[["moscow"], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (85b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'weather.tasks.request_weatherapi', 'id': '744933d8-d4ee-4cec-a237-04ae2538a72e', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '744933d8-d4ee-4cec-a237-04ae2538a72e', 'parent_id': None, 'argsrepr': "('moscow',)", 'kwargsrepr': '{}', 'origin': 'gen7616@e04923f9d72e', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'weather.tasks.request_weatherapi'
+[2022-07-27 21:21:22,532: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:21:22,538: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:21:23,547: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:21:23,570: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:21:23,573: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:21:23,936: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:21:30,181: INFO/MainProcess] Task weather.tasks.request_weatherapi[7442daff-f3ac-4e47-92cb-e45868ab5233] received
+[2022-07-27 21:21:31,084: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[7442daff-f3ac-4e47-92cb-e45868ab5233] succeeded in 0.900158750002447s: {}
+[2022-07-27 21:21:42,913: INFO/MainProcess] Task weather.tasks.request_weatherapi[c0453158-e5b9-4e10-8b48-096154773a36] received
+[2022-07-27 21:21:43,176: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[c0453158-e5b9-4e10-8b48-096154773a36] succeeded in 0.257035459006147s: {}
+[2022-07-27 21:22:22,936: INFO/MainProcess] Task weather.tasks.request_weatherapi[1eef1159-a63a-4694-b072-95b12a2a207d] received
+[2022-07-27 21:22:23,724: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[1eef1159-a63a-4694-b072-95b12a2a207d] succeeded in 0.7827505000022938s: {}
+[2022-07-27 21:22:42,419: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:22:42,424: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:22:43,437: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:22:43,459: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:22:43,463: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:22:43,913: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:24:09,515: INFO/MainProcess] Task weather.tasks.request_weatherapi[f4d7d385-b96a-4498-998a-1969fe99c9ff] received
+[2022-07-27 21:24:09,732: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[f4d7d385-b96a-4498-998a-1969fe99c9ff] succeeded in 0.2110428759988281s: {}
+[2022-07-27 21:25:17,556: INFO/MainProcess] Task weather.tasks.request_weatherapi[c3c7b6fc-1f1b-4729-b10e-30afe8029600] received
+[2022-07-27 21:25:17,819: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[c3c7b6fc-1f1b-4729-b10e-30afe8029600] succeeded in 0.2537537920070463s: {}
+[2022-07-27 21:25:42,355: INFO/MainProcess] Task weather.tasks.request_weatherapi[e15407bb-3669-4d06-91ed-93dbbaa61566] received
+[2022-07-27 21:25:42,590: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[e15407bb-3669-4d06-91ed-93dbbaa61566] succeeded in 0.22728445900429506s: {}
+[2022-07-27 21:25:58,221: INFO/MainProcess] Task weather.tasks.request_weatherapi[935f6e4c-8cae-48bd-a703-c7ed31b21936] received
+[2022-07-27 21:25:58,423: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[935f6e4c-8cae-48bd-a703-c7ed31b21936] succeeded in 0.1989764579993789s: {}
+[2022-07-27 21:26:37,006: INFO/MainProcess] Task weather.tasks.request_weatherapi[53a1f28d-9e25-4758-a4b5-5f8599c997ca] received
+[2022-07-27 21:26:37,254: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[53a1f28d-9e25-4758-a4b5-5f8599c997ca] succeeded in 0.24418245800188743s: {}
+[2022-07-27 21:28:46,354: INFO/MainProcess] Task weather.tasks.request_weatherapi[35fa687d-fc26-4cb8-84de-90c2b7f464da] received
+[2022-07-27 21:28:46,588: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[35fa687d-fc26-4cb8-84de-90c2b7f464da] succeeded in 0.23094374999345746s: {}
+[2022-07-27 21:30:36,002: INFO/MainProcess] Task weather.tasks.request_weatherapi[57ff84c1-a0b3-48ff-a7c1-7d394e967f4c] received
+[2022-07-27 21:30:36,324: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[57ff84c1-a0b3-48ff-a7c1-7d394e967f4c] succeeded in 0.3170090009953128s: {}
+[2022-07-27 21:31:02,983: INFO/MainProcess] Task weather.tasks.request_weatherapi[5faa3543-bf4f-4143-81f3-87c95e034f44] received
+[2022-07-27 21:31:03,235: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[5faa3543-bf4f-4143-81f3-87c95e034f44] succeeded in 0.2459364589958568s: {}
+[2022-07-27 21:31:05,467: INFO/MainProcess] Task weather.tasks.request_weatherapi[24e03e6d-b56e-4099-a5bf-09c3ced88ef9] received
+[2022-07-27 21:31:05,726: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[24e03e6d-b56e-4099-a5bf-09c3ced88ef9] succeeded in 0.2508455010029138s: {}
+[2022-07-27 21:31:52,781: INFO/MainProcess] Task weather.tasks.request_weatherapi[f9aca603-4a25-4bec-8798-fda3de7920ae] received
+[2022-07-27 21:31:52,988: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[f9aca603-4a25-4bec-8798-fda3de7920ae] succeeded in 0.20467666599870427s: {}
+[2022-07-27 21:31:55,911: INFO/MainProcess] Task weather.tasks.request_weatherapi[31246e27-10de-41b7-b659-44a447c3aa5c] received
+[2022-07-27 21:31:56,122: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[31246e27-10de-41b7-b659-44a447c3aa5c] succeeded in 0.20715679100248963s: {}
+[2022-07-27 21:40:19,501: INFO/MainProcess] Task weather.tasks.request_weatherapi[3a398af2-34af-483b-9d38-4ad544da01e5] received
+[2022-07-27 21:40:19,837: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[3a398af2-34af-483b-9d38-4ad544da01e5] succeeded in 0.3329343750010594s: {}
+[2022-07-27 21:40:29,422: INFO/MainProcess] Task weather.tasks.request_weatherapi[e044f589-13c5-49c6-81cb-4689f42d744c] received
+[2022-07-27 21:40:29,628: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[e044f589-13c5-49c6-81cb-4689f42d744c] succeeded in 0.19727941699966323s: {}
+[2022-07-27 21:40:57,681: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:40:57,688: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:40:58,695: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:40:58,714: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:40:58,716: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:40:58,918: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:41:08,297: INFO/MainProcess] Task weather.tasks.request_weatherapi[5cdd1c59-89d1-4118-9139-3cd52a9b913c] received
+[2022-07-27 21:41:08,517: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[5cdd1c59-89d1-4118-9139-3cd52a9b913c] succeeded in 0.21609679200628307s: {'source': 'yahoo_weather', 'temp': 20.0, 'condition': 'Clear', 'wind_direction': 10, 'wind_speed': 11.2, 'humidity': 83, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:43:18,829: INFO/MainProcess] Task weather.tasks.request_weatherapi[9b54929f-5629-4904-8197-f4d67f7437b0] received
+[2022-07-27 21:43:19,664: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[9b54929f-5629-4904-8197-f4d67f7437b0] succeeded in 0.821271542001341s: {'source': 'yahoo_weather', 'temp': 20.0, 'condition': 'Clear', 'wind_direction': 10, 'wind_speed': 11.2, 'humidity': 83, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:44:17,161: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[5af58e15-1900-4fbf-bb31-0c5275e96e13] received
+[2022-07-27 21:44:17,167: INFO/MainProcess] Task weather.tasks.request_weatherapi[e1913327-efd2-4e5a-8092-5ba09555482a] received
+[2022-07-27 21:44:17,464: INFO/ForkPoolWorker-3] Task weather.tasks.request_weatherapi[e1913327-efd2-4e5a-8092-5ba09555482a] succeeded in 0.2943114579975372s: {'source': 'yahoo_weather', 'temp': 20.0, 'condition': 'Clear', 'wind_direction': 10, 'wind_speed': 11.2, 'humidity': 83, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:44:18,832: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[5af58e15-1900-4fbf-bb31-0c5275e96e13] succeeded in 1.6638192090031225s: {'source': 'yahoo_weather', 'temp': 20, 'condition': 'Partly Cloudy', 'wind_direction': 250, 'wind_speed': 11.2, 'humidity': 78, 'pressure': 994}
+[2022-07-27 21:45:48,416: INFO/MainProcess] Task weather.tasks.request_weatherapi[fbce470f-6b71-4931-b267-3ddae399a002] received
+[2022-07-27 21:45:48,631: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[fbce470f-6b71-4931-b267-3ddae399a002] succeeded in 0.211331667000195s: {'source': 'yahoo_weather', 'temp': 20.0, 'condition': 'Clear', 'wind_direction': 10, 'wind_speed': 11.2, 'humidity': 83, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:46:12,076: INFO/MainProcess] Task weather.tasks.request_weatherapi[076f9901-2b4a-49a4-95ad-9078f08bc137] received
+[2022-07-27 21:46:12,268: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[076f9901-2b4a-49a4-95ad-9078f08bc137] succeeded in 0.18844566700136056s: {'source': 'yahoo_weather', 'temp': 20.0, 'condition': 'Clear', 'wind_direction': 10, 'wind_speed': 11.2, 'humidity': 83, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:48:35,705: INFO/MainProcess] Task weather.tasks.request_weatherapi[dabf8b62-d3e1-4a57-9a98-963220c0f35c] received
+[2022-07-27 21:48:35,935: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[dabf8b62-d3e1-4a57-9a98-963220c0f35c] succeeded in 0.22420195899758255s: {'source': 'yahoo_weather', 'temp': 19.0, 'condition': 'Clear', 'wind_direction': 80, 'wind_speed': 6.8, 'humidity': 88, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:49:41,800: INFO/MainProcess] Task weather.tasks.request_weatherapi[0ca9a710-6229-43ca-8c81-0f1c8988c092] received
+[2022-07-27 21:49:42,031: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[0ca9a710-6229-43ca-8c81-0f1c8988c092] succeeded in 0.22001141699729487s: {'source': 'yahoo_weather', 'temp': 19.0, 'condition': 'Clear', 'wind_direction': 80, 'wind_speed': 6.8, 'humidity': 88, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:50:44,209: INFO/MainProcess] Task weather.tasks.request_weatherapi[6699d933-a5e1-4bee-91d9-d171be19d047] received
+[2022-07-27 21:50:44,412: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[6699d933-a5e1-4bee-91d9-d171be19d047] succeeded in 0.19974116700177547s: {'source': 'yahoo_weather', 'temp': 19.0, 'condition': 'Clear', 'wind_direction': 80, 'wind_speed': 6.8, 'humidity': 88, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:52:58,730: INFO/MainProcess] Task weather.tasks.request_weatherapi[b72bbe1f-fc0d-4753-aae4-d33a81e51a5f] received
+[2022-07-27 21:52:58,996: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[b72bbe1f-fc0d-4753-aae4-d33a81e51a5f] succeeded in 0.25775037499988684s: {'source': 'yahoo_weather', 'temp': 21.0, 'condition': 'Clear', 'wind_direction': 50, 'wind_speed': 6.8, 'humidity': 73, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:54:00,211: INFO/MainProcess] Task weather.tasks.request_weatherapi[6b261605-f683-4d0e-a5f7-9dc02897e2ed] received
+[2022-07-27 21:54:00,428: INFO/ForkPoolWorker-1] Task weather.tasks.request_weatherapi[6b261605-f683-4d0e-a5f7-9dc02897e2ed] succeeded in 0.21275970800343202s: {'source': 'yahoo_weather', 'temp': 21.0, 'condition': 'Clear', 'wind_direction': 50, 'wind_speed': 6.8, 'humidity': 73, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:54:53,127: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f8df990c-aea7-4c7b-82f0-8b748b8606f2] received
+[2022-07-27 21:54:53,131: INFO/MainProcess] Task weather.tasks.request_weatherapi[b126de73-f0f2-4dcc-9201-afe1c97ba6b3] received
+[2022-07-27 21:54:53,320: INFO/ForkPoolWorker-3] Task weather.tasks.request_weatherapi[b126de73-f0f2-4dcc-9201-afe1c97ba6b3] succeeded in 0.18514312499610242s: {'source': 'yahoo_weather', 'temp': 21.0, 'condition': 'Clear', 'wind_direction': 50, 'wind_speed': 6.8, 'humidity': 73, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:54:55,275: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f8df990c-aea7-4c7b-82f0-8b748b8606f2] succeeded in 2.139299792004749s: {'source': 'yahoo_weather', 'temp': 20, 'condition': 'Partly Cloudy', 'wind_direction': 290, 'wind_speed': 4.8, 'humidity': 81, 'pressure': 994}
+[2022-07-27 21:55:49,459: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[cfaed147-6dca-420a-86bd-ee58b94ef03c] received
+[2022-07-27 21:55:49,465: INFO/MainProcess] Task weather.tasks.request_weatherapi[bf5209df-1e72-4b87-a879-63f975442e81] received
+[2022-07-27 21:55:49,703: INFO/ForkPoolWorker-3] Task weather.tasks.request_weatherapi[bf5209df-1e72-4b87-a879-63f975442e81] succeeded in 0.23293849999754457s: {'source': 'yahoo_weather', 'temp': 21.0, 'condition': 'Clear', 'wind_direction': 50, 'wind_speed': 6.8, 'humidity': 73, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:55:50,610: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[cfaed147-6dca-420a-86bd-ee58b94ef03c] succeeded in 1.1414503759951913s: {'source': 'yahoo_weather', 'temp': 20, 'condition': 'Partly Cloudy', 'wind_direction': 290, 'wind_speed': 4.8, 'humidity': 81, 'pressure': 994}
+[2022-07-27 21:57:00,995: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-27 21:57:01,001: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-27 21:57:02,009: INFO/MainProcess] mingle: all alone
+[2022-07-27 21:57:02,028: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-27 21:57:02,030: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-27 21:57:03,910: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-27 21:57:21,337: INFO/MainProcess] Task weather.tasks.request_yahoo_weather[f4cd7327-e356-4429-9531-c777fb185138] received
+[2022-07-27 21:57:21,340: INFO/MainProcess] Task weather.tasks.request_weatherapi[a142ca97-1ec0-46b3-8277-3d1250729ed5] received
+[2022-07-27 21:57:21,662: INFO/ForkPoolWorker-3] Task weather.tasks.request_weatherapi[a142ca97-1ec0-46b3-8277-3d1250729ed5] succeeded in 0.31917004099523183s: {'source': 'weatherapi', 'temp': 21.5, 'condition': 'Patchy rain possible', 'wind_direction': 224, 'wind_speed': 4.3, 'humidity': 78, 'pressure': 1012.0, 'precip': 0.3}
+[2022-07-27 21:57:22,857: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f4cd7327-e356-4429-9531-c777fb185138] succeeded in 1.515013458993053s: {'source': 'yahoo_weather', 'temp': 20, 'condition': 'Partly Cloudy', 'wind_direction': 290, 'wind_speed': 4.8, 'humidity': 81, 'pressure': 994}

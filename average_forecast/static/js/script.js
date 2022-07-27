@@ -34,6 +34,7 @@ function getStatus(task_ids) {
           <th>${data.wind_speed}</th>
           <th>${data.humidity}</th>
           <th>${data.pressure}</th>
+          <th>${data.precip}</th>
         ` 
         $('#' + data.source).append(html)
       } else if (res.task_status === 'PENDING') {
@@ -44,6 +45,7 @@ function getStatus(task_ids) {
     }
 
     if (pending.length === 0) return true;
+    console.log(pending)
     setTimeout(function() {
       getStatus(pending);
     }, 1000);

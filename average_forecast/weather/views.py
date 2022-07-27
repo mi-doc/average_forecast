@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from celery.result import AsyncResult
 import json
 
+
 class Index(TemplateView):
     template_name = 'weather/index.html'
 
@@ -27,6 +28,7 @@ def get_forecast_statuses(request):
 
             task_result = task_data.result
             if task_data.status == 'FAILURE':
+                # Because error classes are not serializeable 
                 task_result = str(task_result)
 
             results.append({
@@ -36,26 +38,3 @@ def get_forecast_statuses(request):
             })
         
         return JsonResponse({'results': results}, status=200) 
-
-
-
-###########################################################################
-# TRAINING TASKS
-###########################################################################
-
-@csrf_exempt
-def run_task(request):
-    if request.POST:
-        task_type = request.POST.get("type")
-        task = create_task.delay(int(task_type))
-        return JsonResponse({"task_id": task.id}, status=202)
-
-@csrf_exempt
-def get_status(request, task_id):
-    task_result = AsyncResult(task_id)
-    result = {
-        "task_id": task_id,
-        "task_status": task_result.status,
-        "task_result": task_result.result
-    }
-    return JsonResponse(result, status=200)

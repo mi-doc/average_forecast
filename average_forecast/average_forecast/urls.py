@@ -20,8 +20,6 @@ from weather import views as weather_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tasks/<task_id>/', weather_views.get_status),
-    path('tasks/', weather_views.run_task),
     path('get_forecasts/', weather_views.get_forecasts_for_city),
     path('get_forecast_statuses/', weather_views.get_forecast_statuses),
     path('', weather_views.Index.as_view())
