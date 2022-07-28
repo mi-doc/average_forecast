@@ -9,17 +9,11 @@ def run_tasks_to_request_forcasts(city): # ToDo: add type checking
     This function takes city name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    # Below is the list of wether forecast APIs we want to request
-    forecasters = [
-        # get_open_weather_map,
-        get_yahoo_weather,
-        get_weatherapi,
-        get_aeris_weather
-    ]
+    request_weather_tasks = [f['request_func'] for f in FORECASTERS]
     
     task_ids = []
-    for forecaster in forecasters:
-        task = forecaster.delay(city)
+    for req_task in request_weather_tasks:
+        task = req_task.delay(city)
         task_ids.append(task.id)
     return task_ids
 
@@ -106,6 +100,13 @@ def get_aeris_weather(city):
     }
 
 
+FORECASTERS_LIST = [
+    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
+    ('WeatherApi', 'weatherapi', get_weatherapi),
+    ('Aeris weather', 'aeris_weather', get_aeris_weather)
+]
+
+FORECASTERS = [{'name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
 
 
     

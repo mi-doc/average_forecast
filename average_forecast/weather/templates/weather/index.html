@@ -18,16 +18,12 @@
       <th>Pricipitations (mm)</th>
     </tr>
   </thead>
-    <tr id="yahoo_weather">
-      <th>Yahoo Weather </th>
-    </tr>
-    <tr id="weatherapi">
-      <th>WeatherApi </th>
-    </tr>
-    <tr id="aeris_weather">
-      <th>Aeris weather</th>
-    </tr>
   <tbody id="forecasts_table">
+    {% for forecaster in forecasters %}
+      <tr id='{{forecaster.id}}'>
+        <th>{{forecaster.name}}</th>
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
 

@@ -1,13 +1,18 @@
-from django.views.generic import TemplateView
-from django.http import JsonResponse
-from weather.tasks import run_tasks_to_request_forcasts
-from django.views.decorators.csrf import csrf_exempt
 from celery.result import AsyncResult
-import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
+
+from weather.tasks import FORECASTERS, run_tasks_to_request_forcasts
 
 
 class Index(TemplateView):
     template_name = 'weather/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['forecasters'] = FORECASTERS 
+        return context
 
 
 @csrf_exempt
