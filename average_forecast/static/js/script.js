@@ -19,12 +19,10 @@ function getStatus(task_ids) {
     data: {task_ids: task_ids.toString()},
     method: 'POST'
   })
-  .done((results) => {
+  .done((response) => {
     var pending = Array()
-    // ToDo figure out how to read data
-    // from the response.
-    for (var n in results.results) {
-      res = results.results[n]
+    for (var n in response.results) {
+      res = response.results[n]
       if (res.task_status === 'SUCCESS') {
         var data = res.task_result
         const html = `
@@ -48,7 +46,7 @@ function getStatus(task_ids) {
     console.log(pending)
     setTimeout(function() {
       getStatus(pending);
-    }, 1000);
+    }, 300);
   })
   .fail((err) => {
     console.log(err)

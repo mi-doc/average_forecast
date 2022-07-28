@@ -4,11 +4,17 @@ from celery import shared_task
 RAPID_API_KEY = 'fcccdcec54mshd8de1f4afd9c04cp1bd53fjsn8fbc05589296'
 
 
-def run_tasks_to_request_forcasts(city):
+def run_tasks_to_request_forcasts(city): # ToDo: add type checking
+    """
+    This function takes city name as an argument and creates tasks requesting
+    weather forecasters, and returns a list of task ids.
+    """
+    # Below is the list of wether forecast APIs we want to request
     forecasters = [
-        # request_open_weather_map,
-        request_yahoo_weather,
-        request_weatherapi,
+        # get_open_weather_map,
+        get_yahoo_weather,
+        get_weatherapi,
+        get_aeris_weather
     ]
     
     task_ids = []
@@ -18,7 +24,7 @@ def run_tasks_to_request_forcasts(city):
     return task_ids
 
 @shared_task
-def request_weatherapi(city):
+def get_weatherapi(city):
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
     querystring = {"q": city}
     headers = {
@@ -41,7 +47,7 @@ def request_weatherapi(city):
     }
 
 @shared_task
-def request_open_weather_map(city):
+def get_open_weather_map(city):
     url = "https://community-open-weather-map.p.rapidapi.com/forecast"
     querystring = {"q": city, "units": "metric"}
     headers = {
@@ -51,12 +57,12 @@ def request_open_weather_map(city):
     data_json = request("GET", url, headers=headers, params=querystring)
     data = data_json.json()
     current_weather = {
-
+        # ToDo: figure out if this API works
     }
     return current_weather
 
 @shared_task
-def request_yahoo_weather(city="Moscow"):
+def get_yahoo_weather(city="Moscow"):
     url = "https://yahoo-weather5.p.rapidapi.com/weather"
     querystring = {"location": city, "format":"json", "u":"c"}
     headers = {
@@ -76,3 +82,30 @@ def request_yahoo_weather(city="Moscow"):
         'humidity': current_weather['atmosphere']['humidity'],
         'pressure': current_weather['atmosphere']['pressure']            
     }
+
+@shared_task
+def get_aeris_weather(city):
+    url = f"https://aerisweather1.p.rapidapi.com/observations/{city},ru"
+
+    headers = {
+        "X-RapidAPI-Key": RAPID_API_KEY,
+        "X-RapidAPI-Host": "aerisweather1.p.rapidapi.com"
+    }
+    data_json = request("GET", url, headers=headers)
+    data = data_json.json()
+    current_weather = data['response']['ob']
+
+    return {
+        'source': 'aeris_weather',
+        'temp': current_weather['tempC'],
+        'condition': current_weather['weather'],
+        'wind_direction': current_weather['windDirDEG'],
+        'wind_speed': current_weather['windSpeedKPH'],
+        'humidity': current_weather['humidity'],
+        'pressure': current_weather['pressureMB']            
+    }
+
+
+
+
+    

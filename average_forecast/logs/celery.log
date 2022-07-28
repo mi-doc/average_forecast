@@ -2447,3 +2447,47 @@ KeyError: 'weather.tasks.request_weatherapi'
 [2022-07-27 21:57:21,340: INFO/MainProcess] Task weather.tasks.request_weatherapi[a142ca97-1ec0-46b3-8277-3d1250729ed5] received
 [2022-07-27 21:57:21,662: INFO/ForkPoolWorker-3] Task weather.tasks.request_weatherapi[a142ca97-1ec0-46b3-8277-3d1250729ed5] succeeded in 0.31917004099523183s: {'source': 'weatherapi', 'temp': 21.5, 'condition': 'Patchy rain possible', 'wind_direction': 224, 'wind_speed': 4.3, 'humidity': 78, 'pressure': 1012.0, 'precip': 0.3}
 [2022-07-27 21:57:22,857: INFO/ForkPoolWorker-1] Task weather.tasks.request_yahoo_weather[f4cd7327-e356-4429-9531-c777fb185138] succeeded in 1.515013458993053s: {'source': 'yahoo_weather', 'temp': 20, 'condition': 'Partly Cloudy', 'wind_direction': 290, 'wind_speed': 4.8, 'humidity': 81, 'pressure': 994}
+[2022-07-28 06:12:29,484: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-28 06:12:29,489: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-28 06:12:30,498: INFO/MainProcess] mingle: all alone
+[2022-07-28 06:12:30,509: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-28 06:12:30,512: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-28 06:12:37,629: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-28 07:12:46,704: INFO/MainProcess] Connected to redis://redis:6379/0
+[2022-07-28 07:12:46,708: INFO/MainProcess] mingle: searching for neighbors
+[2022-07-28 07:12:47,715: INFO/MainProcess] mingle: all alone
+[2022-07-28 07:12:47,728: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-07-28 07:12:47,729: INFO/MainProcess] celery@0a5181aadf6b ready.
+[2022-07-28 07:12:52,620: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-07-28 07:13:12,137: INFO/MainProcess] Task weather.tasks.get_weatherapi[f5f9c80c-d6ac-4006-9da2-97bb41633121] received
+[2022-07-28 07:13:12,141: INFO/MainProcess] Task weather.tasks.get_aeris_weather[a1cf0dac-bfcb-4402-91e4-80fcfc406787] received
+[2022-07-28 07:13:12,431: INFO/ForkPoolWorker-1] Task weather.tasks.get_weatherapi[f5f9c80c-d6ac-4006-9da2-97bb41633121] succeeded in 0.2868333329970483s: {'source': 'weatherapi', 'temp': 26.0, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 15.1, 'humidity': 61, 'pressure': 1012.0, 'precip': 0.0}
+[2022-07-28 07:13:13,728: INFO/ForkPoolWorker-3] Task weather.tasks.get_aeris_weather[a1cf0dac-bfcb-4402-91e4-80fcfc406787] succeeded in 1.5833431260107318s: {'source': 'aeris_weather', 'temp': 27, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 14, 'humidity': 58, 'pressure': 1011}
+[2022-07-28 07:13:16,134: INFO/MainProcess] Task weather.tasks.get_weatherapi[b92ecc0c-bbe1-4db5-ba37-24cc9a1b379d] received
+[2022-07-28 07:13:16,141: INFO/MainProcess] Task weather.tasks.get_aeris_weather[82aab642-5cc9-471f-a496-37f6c50223c2] received
+[2022-07-28 07:13:16,369: INFO/ForkPoolWorker-1] Task weather.tasks.get_weatherapi[b92ecc0c-bbe1-4db5-ba37-24cc9a1b379d] succeeded in 0.2248868339956971s: {'source': 'weatherapi', 'temp': 26.0, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 15.1, 'humidity': 61, 'pressure': 1012.0, 'precip': 0.0}
+[2022-07-28 07:13:16,400: INFO/ForkPoolWorker-3] Task weather.tasks.get_aeris_weather[82aab642-5cc9-471f-a496-37f6c50223c2] succeeded in 0.25681129199801944s: {'source': 'aeris_weather', 'temp': 27, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 14, 'humidity': 58, 'pressure': 1011}
+[2022-07-28 07:13:35,052: INFO/MainProcess] Task weather.tasks.get_yahoo_weather[35e0bec3-243e-45ce-a2f7-4053bf7ea6b9] received
+[2022-07-28 07:13:35,056: INFO/MainProcess] Task weather.tasks.get_weatherapi[703defc3-705f-4626-afbf-5d82575c26e1] received
+[2022-07-28 07:13:35,060: INFO/MainProcess] Task weather.tasks.get_aeris_weather[24a7108e-2b44-4054-9b55-feb076903515] received
+[2022-07-28 07:13:35,257: INFO/ForkPoolWorker-3] Task weather.tasks.get_weatherapi[703defc3-705f-4626-afbf-5d82575c26e1] succeeded in 0.19970908299728762s: {'source': 'weatherapi', 'temp': 26.0, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 15.1, 'humidity': 61, 'pressure': 1012.0, 'precip': 0.0}
+[2022-07-28 07:13:35,289: INFO/ForkPoolWorker-2] Task weather.tasks.get_aeris_weather[24a7108e-2b44-4054-9b55-feb076903515] succeeded in 0.22418741600995418s: {'source': 'aeris_weather', 'temp': 27, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 14, 'humidity': 58, 'pressure': 1011}
+[2022-07-28 07:13:37,373: INFO/ForkPoolWorker-1] Task weather.tasks.get_yahoo_weather[35e0bec3-243e-45ce-a2f7-4053bf7ea6b9] succeeded in 2.314869918001932s: {'source': 'yahoo_weather', 'temp': 25, 'condition': 'Thunderstorms', 'wind_direction': 200, 'wind_speed': 9.6, 'humidity': 61, 'pressure': 994}
+[2022-07-28 07:14:38,800: INFO/MainProcess] Task weather.tasks.get_yahoo_weather[e814c3b3-985b-4512-907e-6a8bb1186031] received
+[2022-07-28 07:14:38,804: INFO/MainProcess] Task weather.tasks.get_weatherapi[b528ef62-591e-4bce-bcc3-8d1f2d878ac6] received
+[2022-07-28 07:14:38,810: INFO/MainProcess] Task weather.tasks.get_aeris_weather[724d4750-bb64-4903-93e3-65581d5cc07a] received
+[2022-07-28 07:14:39,015: INFO/ForkPoolWorker-3] Task weather.tasks.get_weatherapi[b528ef62-591e-4bce-bcc3-8d1f2d878ac6] succeeded in 0.2060121669928776s: {'source': 'weatherapi', 'temp': 26.0, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 15.1, 'humidity': 61, 'pressure': 1012.0, 'precip': 0.0}
+[2022-07-28 07:14:39,045: INFO/ForkPoolWorker-2] Task weather.tasks.get_aeris_weather[724d4750-bb64-4903-93e3-65581d5cc07a] succeeded in 0.2290999160031788s: {'source': 'aeris_weather', 'temp': 27, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 14, 'humidity': 58, 'pressure': 1011}
+[2022-07-28 07:14:39,844: INFO/ForkPoolWorker-1] Task weather.tasks.get_yahoo_weather[e814c3b3-985b-4512-907e-6a8bb1186031] succeeded in 1.036006209003972s: {'source': 'yahoo_weather', 'temp': 25, 'condition': 'Thunderstorms', 'wind_direction': 200, 'wind_speed': 9.6, 'humidity': 61, 'pressure': 994}
+[2022-07-28 07:15:11,238: INFO/MainProcess] Task weather.tasks.get_yahoo_weather[261ee441-9d1d-43f1-ae22-8b93466ce723] received
+[2022-07-28 07:15:11,241: INFO/MainProcess] Task weather.tasks.get_weatherapi[ee6ff1ca-e29f-4cac-9ad1-697f3b44b315] received
+[2022-07-28 07:15:11,247: INFO/MainProcess] Task weather.tasks.get_aeris_weather[2f49406a-8a04-453b-8c09-7f67e9cb32c1] received
+[2022-07-28 07:15:11,442: INFO/ForkPoolWorker-3] Task weather.tasks.get_weatherapi[ee6ff1ca-e29f-4cac-9ad1-697f3b44b315] succeeded in 0.19890537500032224s: {'source': 'weatherapi', 'temp': 26.0, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 15.1, 'humidity': 61, 'pressure': 1012.0, 'precip': 0.0}
+[2022-07-28 07:15:11,471: INFO/ForkPoolWorker-2] Task weather.tasks.get_aeris_weather[2f49406a-8a04-453b-8c09-7f67e9cb32c1] succeeded in 0.2191205420094775s: {'source': 'aeris_weather', 'temp': 27, 'condition': 'Sunny', 'wind_direction': 170, 'wind_speed': 14, 'humidity': 58, 'pressure': 1011}
+[2022-07-28 07:15:12,300: INFO/ForkPoolWorker-1] Task weather.tasks.get_yahoo_weather[261ee441-9d1d-43f1-ae22-8b93466ce723] succeeded in 1.0574173750064801s: {'source': 'yahoo_weather', 'temp': 26, 'condition': 'Thunderstorms', 'wind_direction': 200, 'wind_speed': 9.6, 'humidity': 61, 'pressure': 994}

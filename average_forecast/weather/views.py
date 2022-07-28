@@ -28,7 +28,7 @@ def get_forecast_statuses(request):
 
             task_result = task_data.result
             if task_data.status == 'FAILURE':
-                # Because error classes are not serializeable 
+                # Because error classes are not serializeable, we take only text message of the error 
                 task_result = str(task_result)
 
             results.append({
