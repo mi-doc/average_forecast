@@ -32,7 +32,7 @@ def get_forecasts_for_city(request):
         }
 
         tasks = run_tasks_to_request_forcasts(coords)
-        return JsonResponse({"tasks": tasks}, status=202)
+        return JsonResponse({"tasks": tasks, "address": city_data['address']}, status=202)
 
 
 @csrf_exempt

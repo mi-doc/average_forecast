@@ -11,7 +11,8 @@ $('#request_forecast_button').on('click', function() {
       $("#"+task.forecaster_id).attr('data-taskid', task.task_id)
       task_ids.push(task.task_id)
     }
-
+    
+    $("#address").text(res.address); 
     getStatus(task_ids);
   })
   .fail((err) => {
@@ -43,6 +44,7 @@ function getStatus(task_ids) {
           <td>${data.pressure}</td>
           <td>${data.precip}</td>
         ` 
+        $('#' + data.source + ' > td').remove() // Removing previous forecasts 
         $('#' + data.source).append(html)
       } else if (res.task_status === 'PENDING') {
         pending.push(res.task_id)
