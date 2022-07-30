@@ -5,22 +5,22 @@ import json
 RAPID_API_KEY = 'fcccdcec54mshd8de1f4afd9c04cp1bd53fjsn8fbc05589296'
 
 
-def run_tasks_to_request_forcasts(city): # ToDo: add type checking
+def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     """
-    This function takes city name as an argument and creates tasks requesting
+    This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
     
     tasks = []
     for forecaster in FORECASTERS:
-        task = forecaster['request_func'].delay(city)
+        task = forecaster['request_func'].delay(coords)
         tasks.append({'forecaster_id': forecaster['id'], 'task_id': task.id})
     return tasks
 
 @shared_task
-def get_weatherapi(city):
+def get_weatherapi(coords):
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
-    querystring = {"q": city}
+    querystring = {"q": f"{coords['lat']},{coords['lng']}"}
     headers = {
         "X-RapidAPI-Key": RAPID_API_KEY,
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
@@ -128,10 +128,10 @@ def get_foreca_weather(city):
 
 
 FORECASTERS_LIST = [
-    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
+    # ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # Limit is 1,000,000 requests per month
-    ('Aeris weather', 'aeris_weather', get_aeris_weather),
-    ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
+    # ('Aeris weather', 'aeris_weather', get_aeris_weather),
+    # ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]

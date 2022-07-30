@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
+import geocoder
 from weather.tasks import FORECASTERS, run_tasks_to_request_forcasts
 
 
@@ -18,8 +19,19 @@ class Index(TemplateView):
 @csrf_exempt
 def get_forecasts_for_city(request):
     if request.POST:
-        city = request.POST.get('type')
-        tasks = run_tasks_to_request_forcasts(city)
+        city = request.POST.get('city')
+
+        # Here we find out coordinates of the city requested by user,
+        # since some weather forecasters don't accept a city name,
+        # only latitude and longitude of the place
+        g = geocoder.osm(city)
+        city_data = g.geojson['features'][0]['properties']
+        coords = {
+            'lat': city_data['lat'], 
+            'lng': city_data['lng']
+        }
+
+        tasks = run_tasks_to_request_forcasts(coords)
         return JsonResponse({"tasks": tasks}, status=202)
 
 

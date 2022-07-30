@@ -1,10 +1,20 @@
 {% extends 'weather/base.html' %}
 {% load static %}
 
-
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/city_input.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+{% endblock style %}
 
 {% block content %}
-<button class="button is-primary" id="request_forecast_button" data-city='moscow'>Request forecast update</button>
+
+<div class="form__group">
+  <input type="text" class="form__input" id="city_name" placeholder="Enter city" required="" />
+  <button class="button is-primary" id="request_forecast_button" data-city='moscow'>Request forecast</button>
+</div>
+
+
+  {% comment %} <input placeholder="Enter city.." ... /> {% endcomment %}
 <table class="simple-little-table" cellspacing="0">
   <thead>
     <tr>

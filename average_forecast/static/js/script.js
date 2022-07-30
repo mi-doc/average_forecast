@@ -1,7 +1,7 @@
 $('#request_forecast_button').on('click', function() {
   $.ajax({
     url: '/get_forecasts/',
-    data: { type: 'moscow' },
+    data: { city: $("#city_name")[0].value },
     method: 'POST',
   })
   .done((res) => {
