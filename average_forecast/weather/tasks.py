@@ -1,5 +1,6 @@
 from requests import request
 from celery import shared_task
+import json
 
 RAPID_API_KEY = 'fcccdcec54mshd8de1f4afd9c04cp1bd53fjsn8fbc05589296'
 
@@ -9,13 +10,12 @@ def run_tasks_to_request_forcasts(city): # ToDo: add type checking
     This function takes city name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    request_weather_tasks = [f['request_func'] for f in FORECASTERS]
     
-    task_ids = []
-    for req_task in request_weather_tasks:
-        task = req_task.delay(city)
-        task_ids.append(task.id)
-    return task_ids
+    tasks = []
+    for forecaster in FORECASTERS:
+        task = forecaster['request_func'].delay(city)
+        tasks.append({'forecaster_id': forecaster['id'], 'task_id': task.id})
+    return tasks
 
 @shared_task
 def get_weatherapi(city):
@@ -29,6 +29,7 @@ def get_weatherapi(city):
     data_json = request("GET", url, headers=headers, params=querystring)
     data = data_json.json()
     current_weather = data['current']
+    
     return {
         'source': 'weatherapi',
         'temp': current_weather['temp_c'],
@@ -99,14 +100,41 @@ def get_aeris_weather(city):
         'pressure': current_weather['pressureMB']            
     }
 
+@shared_task
+def get_foreca_weather(city):
+    url = "https://foreca-weather.p.rapidapi.com/current/102643743"
+
+    querystring = {"alt":"0","tempunit":"C","windunit":"kph","tz":"Europe/London","lang":"en"}
+
+    headers = {
+        "X-RapidAPI-Key": RAPID_API_KEY,
+        "X-RapidAPI-Host": "foreca-weather.p.rapidapi.com"
+    }
+
+    req = request("GET", url, headers=headers, params=querystring)
+    data = json.loads(req.text)
+    current_weather = data['current']
+
+    return {
+        'source': 'foreca_weather',
+        'temp': current_weather['temperature'],
+        'condition': current_weather['symbolPhrase'],
+        'wind_direction': current_weather['windDir'],
+        'wind_speed': current_weather['windSpeed'],
+        'humidity': current_weather['relHumidity'],
+        'pressure': current_weather['pressure'],
+        'precip': current_weather['precipRate']
+    }
+
 
 FORECASTERS_LIST = [
     ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
-    ('WeatherApi', 'weatherapi', get_weatherapi),
-    ('Aeris weather', 'aeris_weather', get_aeris_weather)
+    ('WeatherApi', 'weatherapi', get_weatherapi),                 # Limit is 1,000,000 requests per month
+    ('Aeris weather', 'aeris_weather', get_aeris_weather),
+    ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
 ]
 
-FORECASTERS = [{'name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
+FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
 
 
     

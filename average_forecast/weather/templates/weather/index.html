@@ -20,8 +20,8 @@
   </thead>
   <tbody id="forecasts_table">
     {% for forecaster in forecasters %}
-      <tr id='{{forecaster.id}}'>
-        <th>{{forecaster.name}}</th>
+      <tr id='{{forecaster.id}}' data-taskid=''>
+        <th>{{forecaster.readable_name}} </th>
       </tr>
     {% endfor %}
   </tbody>

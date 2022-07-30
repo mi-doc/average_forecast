@@ -5,7 +5,14 @@ $('#request_forecast_button').on('click', function() {
     method: 'POST',
   })
   .done((res) => {
-    getStatus(res.task_ids);
+    var task_ids = Array()
+    for (const n in res.tasks) {
+      var task = res.tasks[n]
+      $("#"+task.forecaster_id).attr('data-taskid', task.task_id)
+      task_ids.push(task.task_id)
+    }
+
+    getStatus(task_ids);
   })
   .fail((err) => {
     console.log(err);
@@ -24,26 +31,28 @@ function getStatus(task_ids) {
     for (var n in response.results) {
       res = response.results[n]
       if (res.task_status === 'SUCCESS') {
-        var data = res.task_result
+        const data = res.task_result
+
+        // Adding weather data to the row
         const html = `
-          <th>${data.temp}</th>
-          <th>${data.condition}</th>
-          <th>${data.wind_direction}</th>
-          <th>${data.wind_speed}</th>
-          <th>${data.humidity}</th>
-          <th>${data.pressure}</th>
-          <th>${data.precip}</th>
+          <td>${data.temp}</td>
+          <td>${data.condition}</td>
+          <td>${data.wind_direction}</td>
+          <td>${data.wind_speed}</td>
+          <td>${data.humidity}</td>
+          <td>${data.pressure}</td>
+          <td>${data.precip}</td>
         ` 
         $('#' + data.source).append(html)
       } else if (res.task_status === 'PENDING') {
         pending.push(res.task_id)
       } else {
+        $(' [data-taskid="' + res.task_id + '"]').append('<td>FAILURE</td>')
         // ToDo: add failed tasks handling
       }
     }
 
     if (pending.length === 0) return true;
-    console.log(pending)
     setTimeout(function() {
       getStatus(pending);
     }, 300);
@@ -54,52 +63,19 @@ function getStatus(task_ids) {
 }
 
 
-
-
-
-
-
-
-
-
-
-// $('.button').on('click', function() {
-//     $.ajax({
-//       url: '/tasks/',
-//       data: { type: $(this).data('type') },
-//       method: 'POST',
-//     })
-//     .done((res) => {
-//       getStatus(res.task_id);
-//     })
-//     .fail((err) => {
-//       console.log(err);
-//     });
-//   });
-
-
-//   function getStatus(taskID) {
-//     $.ajax({
-//       url: `/tasks/${taskID}/`,
-//       method: 'GET'
-//     })
-//     .done((res) => {
-//       const html = `
-//         <tr>
-//           <td>${res.task_id}</td>
-//           <td>${res.task_status}</td>
-//           <td>${res.task_result}</td>
-//         </tr>`
-//       $('#tasks').prepend(html);
-  
-//       const taskStatus = res.task_status;
-  
-//       if (taskStatus === 'SUCCESS' || taskStatus === 'FAILURE') return false;
-//       setTimeout(function() {
-//         getStatus(res.task_id);
-//       }, 1000);
-//     })
-//     .fail((err) => {
-//       console.log(err)
-//     });
-//   }
+// function change_forecaster_header(forecaster_id, status) {
+//   // This function changes the header of the forecaster row in the table 
+//   // accordingly to the task status
+//   var status_text = ''
+//   switch (status.toLowerCase()) {
+//     case 'success':
+//       status_text = '✅'
+//     case 'pending':
+//       status_text = "⌛️"
+//     case 'failed': 
+//       status_text = "❌"
+//   } 
+//   const header_text = $("#" + forecaster_id + " > th").text()
+//   const new_header_text = header_text + ' ' + status_text
+//   $("#" + forecaster_id + " > th").text(new_header_text)
+// }

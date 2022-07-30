@@ -19,8 +19,8 @@ class Index(TemplateView):
 def get_forecasts_for_city(request):
     if request.POST:
         city = request.POST.get('type')
-        task_ids = run_tasks_to_request_forcasts(city)
-        return JsonResponse({"task_ids": task_ids}, status=202)
+        tasks = run_tasks_to_request_forcasts(city)
+        return JsonResponse({"tasks": tasks}, status=202)
 
 
 @csrf_exempt
