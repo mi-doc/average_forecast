@@ -25,12 +25,21 @@ def get_forecasts_for_city(request):
         # since some weather forecasters don't accept a city name,
         # only latitude and longitude of the place
         g = geocoder.osm(city)
-        city_data = g.geojson['features'][0]['properties']
+        
+        # This error probably indicates too many search requests for free use
+        if 'max retries exceeded with url' in g.status.lower():
+            return JsonResponse({"error": "Geolocation server is not responding. Try later."}, status=503)
+
+        # Handling error when geocoder doesn't recognize the place requested by user
+        try:
+            city_data = g.geojson['features'][0]['properties']
+        except :
+            return JsonResponse({"error": f'The place "{city}" wasn\'t found'}, status=404)
+
         coords = {
             'lat': city_data['lat'], 
             'lng': city_data['lng']
         }
-
         tasks = run_tasks_to_request_forcasts(coords)
         return JsonResponse({"tasks": tasks, "address": city_data['address']}, status=202)
 

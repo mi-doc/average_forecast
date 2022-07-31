@@ -1,4 +1,7 @@
 $('#request_forecast_button').on('click', function() {
+  $('#request_forecast_button').text('⏳')
+
+  // Making a reguest to receive forecasters names and task ids 
   $.ajax({
     url: '/get_forecasts/',
     data: { city: $("#city_name")[0].value },
@@ -15,7 +18,15 @@ $('#request_forecast_button').on('click', function() {
     getStatus(task_ids);
   })
   .fail((err) => {
-    console.log(err);
+    if ((err.status == 404) || (err.status == 503)) {
+      $("#address").text("❌ " + err.responseJSON.error); 
+      updateTableAndStatus('all', '')
+    } else {
+      console.log(err);
+    }
+  })
+  .always(() => {
+    $('#request_forecast_button').text('Request')
   });
 });
 
@@ -43,16 +54,13 @@ function getStatus(task_ids) {
           <td>${data.pressure}</td>
           <td>${data.precip}</td>
         ` 
-        $('#' + data.source + ' > td').remove() // Removing previous forecasts 
-        $('#' + data.source).append(html)
+        
+        updateTableAndStatus(res.task_id, '✅ ', html)
       } else if (res.task_status === 'PENDING') {
         pending.push(res.task_id)
-        $(' [data-taskid="' + res.task_id + '"] > td').remove()
-        $(' [data-taskid="' + res.task_id + '"]').append('<td>PENDING</td>')
+        updateTableAndStatus(res.task_id, '⏳ ')
       } else {
-        $(' [data-taskid="' + res.task_id + '"] > td').remove()
-        $(' [data-taskid="' + res.task_id + '"]').append('<td>Service hasn\'t responded</td>')
-        // ToDo: add failed tasks handling
+        updateTableAndStatus(res.task_id, '❌ ')
       }
     }
 
@@ -66,20 +74,21 @@ function getStatus(task_ids) {
   });
 }
 
+function updateTableAndStatus(taskid, status, html = '') {
+  if (taskid == 'all') {
+    $("#forecasts_table > tbody > tr > th").each(function () {
+      var name = $(this).parent().data('readablename')
+      $(this)
+        .text(status + name)
+        .parent().find(' > td').remove()
+    })
+    return true
+  }
 
-// function change_forecaster_header(forecaster_id, status) {
-//   // This function changes the header of the forecaster row in the table 
-//   // accordingly to the task status
-//   var status_text = ''
-//   switch (status.toLowerCase()) {
-//     case 'success':
-//       status_text = '✅'
-//     case 'pending':
-//       status_text = "⌛️"
-//     case 'failed': 
-//       status_text = "❌"
-//   } 
-//   const header_text = $("#" + forecaster_id + " > th").text()
-//   const new_header_text = header_text + ' ' + status_text
-//   $("#" + forecaster_id + " > th").text(new_header_text)
-// }
+  var el = $(' [data-taskid="' + taskid + '"]')
+  el.find(' > td').remove()
+  el.find(' > th').text(status + el.data('readablename'))
+  if (html) {
+    el.append(html)
+  }
+}

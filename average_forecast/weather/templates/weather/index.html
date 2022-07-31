@@ -18,19 +18,19 @@
       <h2>Current forecast for:</h2>
     </div>
     <div class="w3-cell w3-cell-middle w3-container">
-      <input class="w3-input w3-border " placeholder='"London", "екб", "Арбатская"' type="text" id="city_name" >
+      <input class="w3-input w3-border " placeholder='"Paris", "екб", "Арбатская"' type="text" id="city_name" >
     </div>
     <div class="w3-cell w3-cell-middle w3-container">
       <button class="w3-button w3-teal w3-border" id="request_forecast_button">Request</button>
     </div>
   </div>
 
-  <div class="w3-panel w3-leftbar w3-sand w3-xxlarge w3-serif">
+  <div class="w3-panel w3-leftbar w3-light-grey w3-large w3-serif">
     <p id='address'> </p>
   </div> 
 
 
-  <table class="w3-table-all w3-card-4">
+  <table class="w3-table-all w3-card-4" id='forecasts_table'>
   <thead>
     <tr>
       <th></th>
@@ -45,7 +45,7 @@
   </thead>
   <tbody id="forecasts_table">
     {% for forecaster in forecasters %}
-      <tr id='{{forecaster.id}}' data-taskid=''>
+      <tr id='{{forecaster.id}}' data-taskid='' data-readablename='{{forecaster.readable_name}}'>
         <th>{{forecaster.readable_name}} </th>
       </tr>
     {% endfor %}
