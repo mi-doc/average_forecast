@@ -2,21 +2,35 @@
 {% load static %}
 
 {% block style %}
-  <link rel="stylesheet" href="{% static 'css/city_input.css' %}">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% endblock style %}
 
 {% block content %}
-
-<div class="form__group">
-  <input type="text" class="form__input" id="city_name" placeholder="Enter city" required="" />
-  <button class="button is-primary" id="request_forecast_button" data-city='moscow'>Request forecast</button>
+<div class="w3-container w3-teal">
+  <h1>Weather forecast for any place from different sources</h1>
 </div>
 
+<div class="w3-container" style="width:75%">
 
-<h2>Weather forecast for: </h2>
-<p id='address'> </p>
-<table class="simple-little-table" cellspacing="0">
+  <div class="w3-row">
+    <div class="w3-cell w3-container">
+      <h2>Current forecast for:</h2>
+    </div>
+    <div class="w3-cell w3-cell-middle w3-container">
+      <input class="w3-input w3-border " placeholder='"London", "екб", "Арбатская"' type="text" id="city_name" >
+    </div>
+    <div class="w3-cell w3-cell-middle w3-container">
+      <button class="w3-button w3-teal w3-border" id="request_forecast_button">Request</button>
+    </div>
+  </div>
+
+  <div class="w3-panel w3-leftbar w3-sand w3-xxlarge w3-serif">
+    <p id='address'> </p>
+  </div> 
+
+
+  <table class="w3-table-all w3-card-4">
   <thead>
     <tr>
       <th></th>
@@ -36,7 +50,8 @@
       </tr>
     {% endfor %}
   </tbody>
-</table>
+  </table>
+</div>
 
 
 {% endblock content %}

@@ -11,7 +11,6 @@ $('#request_forecast_button').on('click', function() {
       $("#"+task.forecaster_id).attr('data-taskid', task.task_id)
       task_ids.push(task.task_id)
     }
-    
     $("#address").text(res.address); 
     getStatus(task_ids);
   })
@@ -48,8 +47,11 @@ function getStatus(task_ids) {
         $('#' + data.source).append(html)
       } else if (res.task_status === 'PENDING') {
         pending.push(res.task_id)
+        $(' [data-taskid="' + res.task_id + '"] > td').remove()
+        $(' [data-taskid="' + res.task_id + '"]').append('<td>PENDING</td>')
       } else {
-        $(' [data-taskid="' + res.task_id + '"]').append('<td>FAILURE</td>')
+        $(' [data-taskid="' + res.task_id + '"] > td').remove()
+        $(' [data-taskid="' + res.task_id + '"]').append('<td>Service hasn\'t responded</td>')
         // ToDo: add failed tasks handling
       }
     }

@@ -57,9 +57,9 @@ def get_open_weather_map(city):
     return current_weather
 
 @shared_task
-def get_yahoo_weather(city="Moscow"):
+def get_yahoo_weather(coords):
     url = "https://yahoo-weather5.p.rapidapi.com/weather"
-    querystring = {"location": city, "format":"json", "u":"c"}
+    querystring = {"lat": coords['lat'], "long": coords['lng'],"format":"json","u":"c"}
     headers = {
         "X-RapidAPI-Key": RAPID_API_KEY,
         "X-RapidAPI-Host": "yahoo-weather5.p.rapidapi.com"
@@ -75,12 +75,12 @@ def get_yahoo_weather(city="Moscow"):
         'wind_direction': current_weather['wind']['direction'],
         'wind_speed': current_weather['wind']['speed'],
         'humidity': current_weather['atmosphere']['humidity'],
-        'pressure': current_weather['atmosphere']['pressure']            
+        'pressure': current_weather['atmosphere']['pressure']
     }
 
 @shared_task
-def get_aeris_weather(city):
-    url = f"https://aerisweather1.p.rapidapi.com/observations/{city},ru"
+def get_aeris_weather(coords):
+    url = f"https://aerisweather1.p.rapidapi.com/observations/{coords['lat']},{coords['lng']}"
 
     headers = {
         "X-RapidAPI-Key": RAPID_API_KEY,
@@ -101,8 +101,8 @@ def get_aeris_weather(city):
     }
 
 @shared_task
-def get_foreca_weather(city):
-    url = "https://foreca-weather.p.rapidapi.com/current/102643743"
+def get_foreca_weather(coords):
+    url = f"https://foreca-weather.p.rapidapi.com/current/{coords['lat']},{coords['lng']}"
 
     querystring = {"alt":"0","tempunit":"C","windunit":"kph","tz":"Europe/London","lang":"en"}
 
@@ -128,10 +128,10 @@ def get_foreca_weather(city):
 
 
 FORECASTERS_LIST = [
-    # ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
+    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # Limit is 1,000,000 requests per month
-    # ('Aeris weather', 'aeris_weather', get_aeris_weather),
-    # ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
+    ('Aeris weather', 'aeris_weather', get_aeris_weather),
+    ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
