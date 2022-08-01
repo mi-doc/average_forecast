@@ -27,18 +27,25 @@ def get_forecasts_for_city(request):
         # since some weather forecasters don't accept a city name,
         # only latitude and longitude of the place
         g = geocoder.osm(city)
-        if 'max retries exceeded with url' in g.status.lower():
-            return JsonResponse({"error": "Geolocation server is not responding. Try later."}, status=503)
-        if 'error - no results found' in g.status.lower():
-            return JsonResponse({"error": f'The place "{city}" wasn\'t found'}, status=404)
+        response = {}
 
-        city_data = g.geojson['features'][0]['properties']
-        coords = {
-            'lat': city_data['lat'], 
-            'lng': city_data['lng']
-        }
-        tasks = run_tasks_to_request_forcasts(coords)
-        return JsonResponse({"tasks": tasks, "address": city_data['address']}, status=202)
+        if 'max retries exceeded with url' in g.status.lower():
+            response["error"] = "Geolocation server is not responding. Try later."
+            status = 503
+        elif 'error - no results found' in g.status.lower():
+            response["error"] = f'The place "{city}" wasn\'t found'
+            status=404
+        else:
+            city_data = g.geojson['features'][0]['properties']
+            coords = {
+                'lat': city_data['lat'], 
+                'lng': city_data['lng']
+            }
+            tasks = run_tasks_to_request_forcasts(coords)
+            response.update({"tasks": tasks, "address": city_data['address']})
+            status = 202
+
+        return JsonResponse(response, status=status)
 
 
 @csrf_exempt

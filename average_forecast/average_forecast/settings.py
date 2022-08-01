@@ -21,12 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3f9_7@wh)^_pwc4@e%@r@%!d*dzn+lbka7dhv8^hud7b+w6z)*'
+SECRET_KEY = os.getenv('SECRET_KEY', 'notsecretkey')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.getenv('DEBUG', 0))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+ALLOWED_HOSTS.extend(
+    filter(
+        None,
+        os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+    )
+)
 
 
 # Application definition
@@ -108,7 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
+CELERY_TIMEZONE = TIME_ZONE
 
 USE_I18N = True
 
@@ -129,4 +136,4 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL

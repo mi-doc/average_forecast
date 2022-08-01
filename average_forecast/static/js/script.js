@@ -50,8 +50,8 @@ function getStatus(task_ids) {
           html = `
             <td>${data.temp}</td>
             <td>${data.condition}</td>
-            <td>${data.wind_direction}</td>
-            <td>${data.wind_speed}</td>
+            <td>${degToCompass(data.wind_direction)}</td>
+            <td>${Math.round(data.wind_speed * 0.27778)}</td>
             <td>${data.humidity}</td>
             <td>${data.pressure}</td>
             <td>${data.precip}</td>
@@ -99,4 +99,12 @@ function updateTableAndStatus(taskid, status, html = '') {
   if (html) {
     el.append(html)
   }
+}
+
+function degToCompass(num) {
+  // This function converts wind direction in degrees
+  // to letter representation
+  var val = Math.floor((num / 22.5) + 0.5);
+  var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  return arr[(val % 16)];
 }
