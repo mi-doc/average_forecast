@@ -41,20 +41,20 @@ def get_weatherapi(coords):
         'precip': current_weather['precip_mm']         
     }
 
-@shared_task
-def get_open_weather_map(city):
-    url = "https://community-open-weather-map.p.rapidapi.com/forecast"
-    querystring = {"q": city, "units": "metric"}
-    headers = {
-        "X-RapidAPI-Key": RAPID_API_KEY,
-        "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
-    }
-    data_json = request("GET", url, headers=headers, params=querystring)
-    data = data_json.json()
-    current_weather = {
-        # ToDo: figure out if this API works
-    }
-    return current_weather
+# @shared_task
+# def get_open_weather_map(city):
+#     url = "https://community-open-weather-map.p.rapidapi.com/forecast"
+#     querystring = {"q": city, "units": "metric"}
+#     headers = {
+#         "X-RapidAPI-Key": RAPID_API_KEY,
+#         "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
+#     }
+#     data_json = request("GET", url, headers=headers, params=querystring)
+#     data = data_json.json()
+#     current_weather = {
+#         # ToDo: figure out if this API works
+#     }
+#     return current_weather
 
 @shared_task
 def get_yahoo_weather(coords):
