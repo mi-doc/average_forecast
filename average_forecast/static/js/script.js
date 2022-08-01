@@ -41,27 +41,36 @@ function getStatus(task_ids) {
     var pending = Array()
     for (var n in response.results) {
       res = response.results[n]
-      if (res.task_status === 'SUCCESS') {
-        const data = res.task_result
+      var status = ''
+      var html = ''
 
-        // Adding weather data to the row
-        const html = `
-          <td>${data.temp}</td>
-          <td>${data.condition}</td>
-          <td>${data.wind_direction}</td>
-          <td>${data.wind_speed}</td>
-          <td>${data.humidity}</td>
-          <td>${data.pressure}</td>
-          <td>${data.precip}</td>
-        ` 
-        
-        updateTableAndStatus(res.task_id, '✅ ', html)
-      } else if (res.task_status === 'PENDING') {
-        pending.push(res.task_id)
-        updateTableAndStatus(res.task_id, '⏳ ')
-      } else {
-        updateTableAndStatus(res.task_id, '❌ ')
+      switch (res.task_status) {
+        case 'SUCCESS':
+          const data = res.task_result
+          html = `
+            <td>${data.temp}</td>
+            <td>${data.condition}</td>
+            <td>${data.wind_direction}</td>
+            <td>${data.wind_speed}</td>
+            <td>${data.humidity}</td>
+            <td>${data.pressure}</td>
+            <td>${data.precip}</td>
+          ` 
+          status = '✅ '
+          break;
+        case 'PENDING':
+          pending.push(res.task_id)
+          status = '⏳ '
+          break;
+        case 'FAILURE':
+          status = '❌ '
+          html = `
+            <td>${res.task_result}</td>
+          `
+          break;
       }
+      
+      updateTableAndStatus(res.task_id, status, html)
     }
 
     if (pending.length === 0) return true;
@@ -76,11 +85,10 @@ function getStatus(task_ids) {
 
 function updateTableAndStatus(taskid, status, html = '') {
   if (taskid == 'all') {
-    $("#forecasts_table > tbody > tr > th").each(function () {
-      var name = $(this).parent().data('readablename')
-      $(this)
-        .text(status + name)
-        .parent().find(' > td').remove()
+    $("#forecasts_table > tbody > tr").each(function () {
+      var name = $(this).data('readablename')
+      $(this).find(' > td').remove()
+      $(this).find(' > th').text(status + name)
     })
     return true
   }

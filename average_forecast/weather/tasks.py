@@ -128,10 +128,10 @@ def get_foreca_weather(coords):
 
 
 FORECASTERS_LIST = [
-    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
+    # ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # Limit is 1,000,000 requests per month
-    ('Aeris weather', 'aeris_weather', get_aeris_weather),
-    ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
+    # ('Aeris weather', 'aeris_weather', get_aeris_weather),
+    # ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]

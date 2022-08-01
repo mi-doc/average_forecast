@@ -12,13 +12,9 @@
 </div>
 
 <div class="w3-container" style="width:75%">
-
-  <div class="w3-row">
-    <div class="w3-cell w3-container">
-      <h2>Current forecast for:</h2>
-    </div>
-    <div class="w3-cell w3-cell-middle w3-container">
-      <input class="w3-input w3-border " placeholder='"Paris", "екб", "Арбатская"' type="text" id="city_name" >
+  <div class="w3-row w3-padding-16">
+    <div class="w3-third w3-cell-middle w3-container">
+      <input class="w3-input w3-border " placeholder='"New York", "екб", "Красная площадь"' type="text" id="city_name" >
     </div>
     <div class="w3-cell w3-cell-middle w3-container">
       <button class="w3-button w3-teal w3-border" id="request_forecast_button">Request</button>
@@ -29,29 +25,27 @@
     <p id='address'> </p>
   </div> 
 
-
   <table class="w3-table-all w3-card-4" id='forecasts_table'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Air temp. (C)</th>
-      <th>Condition</th>
-      <th>Wind direct (degree)</th>
-      <th>Wind speed (kph)</th>
-      <th>Humidity</th>
-      <th>Pressure (mb)</th>
-      <th>Pricipitations (mm)</th>
-    </tr>
-  </thead>
-  <tbody id="forecasts_table">
-    {% for forecaster in forecasters %}
-      <tr id='{{forecaster.id}}' data-taskid='' data-readablename='{{forecaster.readable_name}}'>
-        <th>{{forecaster.readable_name}} </th>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Air temp. (C)</th>
+        <th>Condition</th>
+        <th>Wind direct (degree)</th>
+        <th>Wind speed (kph)</th>
+        <th>Humidity</th>
+        <th>Pressure (mb)</th>
+        <th>Pricipitations (mm)</th>
       </tr>
-    {% endfor %}
-  </tbody>
+    </thead>
+    <tbody>
+      {% for forecaster in forecasters %}
+        <tr id='{{forecaster.id}}' data-taskid='' data-readablename='{{forecaster.readable_name}}'>
+          <th>{{forecaster.readable_name}} </th>
+        </tr>
+      {% endfor %}
+    </tbody>
   </table>
 </div>
-
 
 {% endblock content %}
