@@ -54,8 +54,9 @@ function getStatus(task_ids) {
             <td>${Math.round(data.wind_speed * 0.27778)}</td>
             <td>${Math.round(data.humidity)}</td>
             <td>${Math.round(data.pressure)}</td>
-            <td>${typeof(data.precip) == 'undefined' ? '-' : data.precip}</td>
+            <td>${data.precip}</td>
           ` 
+          html = html.replace(/undefined|nan|null/gi, '-')
           status = '✅ '
           break;
         case 'PENDING':

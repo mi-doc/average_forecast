@@ -12,6 +12,7 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     weather forecasters, and returns a list of task ids.
     """
     # get_aeris_weather(coords)
+    # get_vc_weather(coords)
     tasks = []
     for forecaster in FORECASTERS:
         task = forecaster['request_func'].delay(coords)
@@ -131,7 +132,7 @@ def get_foreca_weather(coords):
     }
 
 @shared_task
-def get_weather(coords):
+def get_weatherBit(coords):
     url = "https://weatherbit-v1-mashape.p.rapidapi.com/current"
     querystring = {"lon": coords['lng'],"lat": coords['lat']}
     headers = {
@@ -154,13 +155,43 @@ def get_weather(coords):
         'precip': current_weather['precip']
     } 
 
+@shared_task
+def get_vc_weather(coords):
+    url = "https://visual-crossing-weather.p.rapidapi.com/forecast"
+    querystring = {
+        "aggregateHours":"24",
+        "location": f"{coords['lat']}, {coords['lng']}",
+        "contentType":"json",
+        "unitGroup":"metric",
+        "shortColumnNames":"0"
+    }
+    headers = {
+        "X-RapidAPI-Key": RAPID_API_KEY,
+        "X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
+    }
+
+    response = request("GET", url, headers=headers, params=querystring)
+    data = json.loads(response.text)
+    location_data = data['locations'][f"{coords['lat']}, {coords['lng']}"]
+    current_weather = location_data['currentConditions']
+
+    return {
+        'source': 'weather',
+        'temp': current_weather['temp'],
+        'condition': location_data['values'][0]['conditions'],
+        'wind_direction': current_weather['wdir'],
+        'wind_speed': current_weather['wspd'],
+        'humidity': current_weather['humidity'],
+        'precip': current_weather['precip']
+    } 
 
 FORECASTERS_LIST = [
     ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),      # 1000 per month, 10 per minute
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # 1,000,000 requests per month
     ('Aeris weather', 'aeris_weather', get_aeris_weather),        # 100 per day
     # ('Foreca weather', 'foreca_weather', get_foreca_weather),    # 100 per month
-    ('Weather', 'weather', get_weather),                           # 100 per day
+    ('WeatherBit', 'weather', get_weatherBit),                           # 100 per day
+    ('Visual crossing weather', 'vc_weather', get_vc_weather),      # 500 per month
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
