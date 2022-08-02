@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from requests import request
 from celery import shared_task
 import json
@@ -10,7 +11,7 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    
+    # get_aeris_weather(coords)
     tasks = []
     for forecaster in FORECASTERS:
         task = forecaster['request_func'].delay(coords)
@@ -88,6 +89,9 @@ def get_aeris_weather(coords):
     }
     data_json = request("GET", url, headers=headers)
     data = data_json.json()
+    if data['error'] and 'no results available' in data['error']['description'].lower():
+        raise ObjectDoesNotExist(data['error']['description'])
+
     current_weather = data['response']['ob']
 
     return {
@@ -126,12 +130,37 @@ def get_foreca_weather(coords):
         'precip': current_weather['precipRate']
     }
 
+@shared_task
+def get_weather(coords):
+    url = "https://weatherbit-v1-mashape.p.rapidapi.com/current"
+    querystring = {"lon": coords['lng'],"lat": coords['lat']}
+    headers = {
+        "X-RapidAPI-Key": RAPID_API_KEY,
+        "X-RapidAPI-Host": "weatherbit-v1-mashape.p.rapidapi.com"
+    }
+
+    response = request("GET", url, headers=headers, params=querystring)
+    data = json.loads(response.text)
+    current_weather = data['data'][0]
+
+    return {
+        'source': 'weather',
+        'temp': current_weather['temp'],
+        'condition': current_weather['weather']['description'],
+        'wind_direction': current_weather['wind_dir'],
+        'wind_speed': float(current_weather['wind_spd']) * 3.6,
+        'humidity': current_weather['rh'],
+        'pressure': current_weather['pres'],
+        'precip': current_weather['precip']
+    } 
+
 
 FORECASTERS_LIST = [
-    # ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),
-    ('WeatherApi', 'weatherapi', get_weatherapi),                 # Limit is 1,000,000 requests per month
-    # ('Aeris weather', 'aeris_weather', get_aeris_weather),
-    # ('Foreca weather', 'foreca_weather', get_foreca_weather)    # Limit is 100 per month
+    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),      # 1000 per month, 10 per minute
+    ('WeatherApi', 'weatherapi', get_weatherapi),                 # 1,000,000 requests per month
+    ('Aeris weather', 'aeris_weather', get_aeris_weather),        # 100 per day
+    # ('Foreca weather', 'foreca_weather', get_foreca_weather),    # 100 per month
+    ('Weather', 'weather', get_weather),                           # 100 per day
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]

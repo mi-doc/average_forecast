@@ -3,6 +3,7 @@ from celery.result import AsyncResult
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
+from django.core import exceptions
 
 import geocoder
 import requests
@@ -30,7 +31,7 @@ def get_forecasts_for_city(request):
         response = {}
 
         if 'max retries exceeded with url' in g.status.lower():
-            response["error"] = "Geolocation server is not responding. Try later."
+            response["error"] = "Geolocation service is not responding. Try later."
             status = 503
         elif 'error - no results found' in g.status.lower():
             response["error"] = f'The place "{city}" wasn\'t found'
@@ -62,6 +63,8 @@ def get_forecast_statuses(request):
                     task_result = 'Failed to extablish a connection with the server'
                 elif type(task_result) == requests.exceptions.ConnectTimeout:
                     task_result = 'The server hasn\'t responded (timeout exceeded)'
+                elif type(task_result) == exceptions.ObjectDoesNotExist:
+                    task_result = 'No data for this location'
                 else:
                     task_result = "Some unrecognized error occured"
 
