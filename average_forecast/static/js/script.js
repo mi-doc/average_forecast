@@ -54,7 +54,7 @@ function getStatus(task_ids) {
             <td>${Math.round(data.wind_speed * 0.27778)}</td>
             <td>${Math.round(data.humidity)}</td>
             <td>${Math.round(data.pressure)}</td>
-            <td>${data.precip}</td>
+            <td>${Math.round(data.precip * 10) / 10}</td>
           ` 
           html = html.replace(/undefined|nan|null/gi, '-')
           status = '✅ '
@@ -70,9 +70,9 @@ function getStatus(task_ids) {
           `
           break;
       }
-      
       updateTableAndStatus(res.task_id, status, html)
     }
+    updateAverage();
 
     if (pending.length === 0) return true;
     setTimeout(function() {
@@ -88,15 +88,15 @@ function updateTableAndStatus(taskid, status, html = '') {
   if (taskid == 'all') {
     $("#forecasts_table > tbody > tr").each(function () {
       var name = $(this).data('readablename')
-      $(this).find(' > td').remove()
-      $(this).find(' > th').text(status + name)
+      $(this).find('td').remove()
+      $(this).find('th').text(status + name)
     })
     return true
   }
 
   var el = $(' [data-taskid="' + taskid + '"]')
-  el.find(' > td').remove()
-  el.find(' > th').text(status + el.data('readablename'))
+  el.find('td').remove()
+  el.find('th').text(status + el.data('readablename'))
   if (html) {
     el.append(html)
   }
@@ -108,4 +108,40 @@ function degToCompass(num) {
   var val = Math.floor((num / 22.5) + 0.5);
   var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
   return arr[(val % 16)];
+}
+
+function updateAverage() {
+  // This func calculates average numbers for table columns listed below
+  // This is the so called "average forecast"
+  const params = [
+    // The name of a column and its order number
+    ['Temp', 1],
+    ['Wspd', 4],
+    ['Rh', 5],
+    ['Press', 6],
+    ['Precip', 7]
+  ]
+
+  var table = $('#forecasts_table')[0]
+
+  for (let param of params) {
+    var values = Array()
+    var col_num = param[1]
+    for (let r of table.rows){
+      var cell = r.cells[col_num]
+      if (typeof(cell) == 'undefined') {continue;}
+      var val = cell.textContent
+      if (!isNaN(val) && !isNaN(parseFloat(val))) {   // Checking if the value is a number
+        values.push(parseFloat(val))
+      }
+    }
+    // Next we calculate the average value of a list
+    const sum = values.reduce((a, b) => a + b, 0); 
+    const avg = (sum / values.length) || 0;
+    param[2] = avg
+  }
+
+  console.log(params)
+
+
 }

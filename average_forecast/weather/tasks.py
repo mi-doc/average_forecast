@@ -13,6 +13,7 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     """
     # get_aeris_weather(coords)
     # get_vc_weather(coords)
+    # get_accu_weather(coords)
     tasks = []
     for forecaster in FORECASTERS:
         task = forecaster['request_func'].delay(coords)
@@ -182,16 +183,51 @@ def get_vc_weather(coords):
         'wind_direction': current_weather['wdir'],
         'wind_speed': current_weather['wspd'],
         'humidity': current_weather['humidity'],
+        'pressure': current_weather['sealevelpressure'],
         'precip': current_weather['precip']
     } 
 
+@shared_task
+def get_accu_weather(coords):
+    url = 'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search'
+
+    # Getting "location key" of a place (required by accuweather)
+    querystring = {
+        "q": f"{coords['lat']},{coords['lng']}",
+        "apikey": 'GfA1W3ZZr8lHUGCL3LGyV4UOEK80bGMI'
+    }
+    response = request("GET", url, params=querystring)
+    location_key = json.loads(response.text)['Key']
+    
+    # Getting the forecast
+    url = "http://dataservice.accuweather.com/currentconditions/v1/" + location_key
+    querystring.pop('q')      # Don't need it here
+    querystring['details'] = 'true'  # More detailed weather
+    response = request("GET", url, params=querystring)
+    data = json.loads(response.text)
+    current_weather = data[0]
+
+    return {
+        'source': 'weather',
+        'temp': current_weather['Temperature']['Metric']['Value'],
+        'condition': current_weather['WeatherText'],
+        'wind_direction': current_weather['Wind']['Direction']['Degrees'],
+        'wind_speed': current_weather['Wind']['Speed']['Metric']['Value'],
+        'humidity': current_weather['RelativeHumidity'],
+        'pressure': current_weather['Pressure']['Metric']['Value'],
+        'precip': current_weather['Precip1hr']['Metric']['Value']
+    } 
+
+
+
 FORECASTERS_LIST = [
-    ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),      # 1000 per month, 10 per minute
+    # ('Yahoo weather', 'yahoo_weather', get_yahoo_weather),      # 1000 per month, 10 per minute
+    # ('Accu weather', 'accu_weather', get_accu_weather),         # 50 per day
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # 1,000,000 requests per month
     ('Aeris weather', 'aeris_weather', get_aeris_weather),        # 100 per day
     # ('Foreca weather', 'foreca_weather', get_foreca_weather),    # 100 per month
     ('WeatherBit', 'weather', get_weatherBit),                           # 100 per day
-    ('Visual crossing weather', 'vc_weather', get_vc_weather),      # 500 per month
+    # ('Visual crossing weather', 'vc_weather', get_vc_weather),      # 500 per month
 ]
 
 FORECASTERS = [{'readable_name': t[0], 'id': t[1], 'request_func': t[2]} for t in FORECASTERS_LIST]
