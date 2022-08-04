@@ -115,11 +115,11 @@ function updateAverage() {
   // This is the so called "average forecast"
   const params = [
     // The name of a column and its order number
-    ['Temp', 1],
-    ['Wspd', 4],
-    ['Rh', 5],
-    ['Press', 6],
-    ['Precip', 7]
+    ['av_temp', 1],
+    ['av_wspd', 4],
+    ['av_humidity', 5],
+    ['av_press', 6],
+    ['av_precip', 7]
   ]
 
   var table = $('#forecasts_table')[0]
@@ -127,7 +127,7 @@ function updateAverage() {
   for (let param of params) {
     var values = Array()
     var col_num = param[1]
-    for (let r of table.rows){
+    for (let r of table.tBodies[0].rows){
       var cell = r.cells[col_num]
       if (typeof(cell) == 'undefined') {continue;}
       var val = cell.textContent
@@ -138,10 +138,9 @@ function updateAverage() {
     // Next we calculate the average value of a list
     const sum = values.reduce((a, b) => a + b, 0); 
     const avg = (sum / values.length) || 0;
-    param[2] = avg
-  }
 
-  console.log(params)
+    $("#" + param[0])[0].textContent = Math.round(avg)
+  }
 
 
 }

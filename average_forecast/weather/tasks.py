@@ -2,8 +2,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from requests import request
 from celery import shared_task
 import json
+import os
 
-RAPID_API_KEY = 'fcccdcec54mshd8de1f4afd9c04cp1bd53fjsn8fbc05589296'
+
+RAPID_API_KEY = os.getenv('RAPID_API_KEY')
 
 
 def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
