@@ -50,7 +50,7 @@ function getStatus(task_ids) {
           html = `
             <td>${data.temp}</td>
             <td>${data.condition}</td>
-            <td>${degToCompass(data.wind_direction)}</td>
+            <td data-winddir="${data.wind_direction}">${degToCompass(data.wind_direction)}</td>
             <td>${Math.round(data.wind_speed * 0.27778)}</td>
             <td>${Math.round(data.humidity)}</td>
             <td>${Math.round(data.pressure)}</td>
@@ -116,7 +116,7 @@ function updateAverage() {
   const params = [
     // The name of a column and its order number
     ['av_temp', 1],
-    ['av_wspd', 4],
+    ['av_wspd', 4],      // Average wind direction is calculated separately
     ['av_humidity', 5],
     ['av_press', 6],
     ['av_precip', 7]
@@ -142,5 +142,39 @@ function updateAverage() {
     $("#" + param[0])[0].textContent = Math.round(avg)
   }
 
+  // Finally calculating average wind direction.
+  // It is a "circular" data, so it needs some math to find average direction
+  var wind_dir_list = Array()
+  $('[data-winddir]').each(function() {
+    var d = $(this).data('winddir')
+    if (!isNaN(d)) {
+      wind_dir_list.push(d);
+    }
+  })
+  average_dir = getAverageDegrees(wind_dir_list)
+  average_dir_compass = degToCompass(average_dir)
+  $('#av_wdir')[0].textContent = average_dir_compass
+}
 
+getAverageDegrees = (array) => {
+  // WARNING BEWARE OF MATH
+  // I found this solution on stackoverflow
+  let arrayLength = array.length;
+  let sinTotal = 0;
+  let cosTotal = 0;
+
+  for (let i = 0; i < arrayLength; i++) {
+      sinTotal += Math.sin(array[i] * (Math.PI / 180));
+      cosTotal += Math.cos(array[i] * (Math.PI / 180));
+  }
+
+  let averageDirection = Math.atan(sinTotal / cosTotal) * (180 / Math.PI);
+
+  if (cosTotal < 0) {
+      averageDirection += 180;
+  } else if (sinTotal < 0) {
+      averageDirection += 360;
+  }
+
+  return averageDirection;
 }
