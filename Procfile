@@ -1,2 +1,2 @@
-cd average_forecast/
+worker: cd average_forecast/
 web: gunicorn average_forecast.wsgi
