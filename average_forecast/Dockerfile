@@ -1,13 +1,28 @@
-FROM python:3.10
-LABEL maintainer='Mikhail Nikolaev'
+FROM python:3.10-slim as builder
+ENV PYTHONUNBUFFERED=1
 
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
+RUN pip install -U pip setuptools wheel
 
-COPY requirements.txt /average_forecast/
-WORKDIR /average_forecast
+WORKDIR /wheels
+COPY requirements.txt /requirements.txt
+RUN pip wheel -r /requirements.txt
+
+
+FROM python:3.10-slim
+ENV PYTHONUNBUFFERED=1
+
+COPY --from=builder /wheels /wheels
+RUN pip install -U pip setuptools wheel \
+      && pip install /wheels/* \
+      && rm -rf /wheels \
+      && rm -rf /root/.cache/pip/*
+
+WORKDIR /code
+COPY . .
+
 EXPOSE 8000
+ENV PYTHONPATH /code
 
-RUN pip install --upgrade pip && pip install -r requirements.txt 
+RUN python manage.py collectstatic --noinput
 
-COPY . /average_forecast/
+CMD ["gunicorn", "-c", "docker/gunicorn.py", "average_forecast.wsgi:application"]
