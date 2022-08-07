@@ -11,18 +11,22 @@ RUN pip wheel -r /requirements.txt
 FROM python:3.10-slim
 ENV PYTHONUNBUFFERED=1
 
+WORKDIR /code
+
 COPY --from=builder /wheels /wheels
 RUN pip install -U pip setuptools wheel \
-      && pip install /wheels/* \
-      && rm -rf /wheels \
-      && rm -rf /root/.cache/pip/*
+        && pip install /wheels/* \
+        && rm -rf /wheels \
+        && rm -rf /root/.cache/pip/* \
+        && mkdir logs staticfiles \
+        && touch logs/celery.log \
+        && adduser --disabled-password --no-create-home app \
+        && chown -R app:app logs/ staticfiles/ \
+        && chmod -R 755 logs/ staticfiles/
 
-WORKDIR /code
 COPY . .
 
 EXPOSE 8000
 ENV PYTHONPATH /code
 
-RUN python manage.py collectstatic --noinput
-
-CMD ["gunicorn", "-c", "docker/gunicorn.py", "average_forecast.wsgi:application"]
+USER app

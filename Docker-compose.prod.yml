@@ -5,10 +5,9 @@ services:
     build: ./average_forecast
     command: >
       sh -c "
-        python average_forecast/manage.py runserver 0.0.0.0:8000
+        python manage.py collectstatic --noinput && \
+        gunicorn -c docker/gunicorn.py average_forecast.wsgi:application
       "
-    volumes:
-      - ./:/average_forecast
     ports:
       - "8000:8000"
     env_file:
