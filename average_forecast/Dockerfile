@@ -18,10 +18,10 @@ RUN pip install -U pip setuptools wheel \
         && pip install /wheels/* \
         && rm -rf /wheels \
         && rm -rf /root/.cache/pip/* \
-        && mkdir logs staticfiles \
+        && mkdir logs staticfiles /home/app \
         && touch logs/celery.log \
         && adduser --disabled-password --no-create-home app \
-        && chown -R app:app logs/ staticfiles/ \
+        && chown -R app:app logs/ staticfiles/ /home/app/ \
         && chmod -R 755 logs/ staticfiles/
 
 COPY . .

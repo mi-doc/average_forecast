@@ -13,9 +13,6 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    # get_aeris_weather(coords)
-    # get_vc_weather(coords)
-    # get_accu_weather(coords)
     tasks = []
     for forecaster in FORECASTERS:
         task = forecaster['request_func'].delay(coords)
