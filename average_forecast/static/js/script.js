@@ -1,4 +1,13 @@
-$('#request_forecast_button').on('click', function() {
+// Triggering request
+$('#request_forecast_button').on('click', request_weather_for_location)
+$('#city_name').keypress(function (e) {
+  if (e.which == 13) {
+    request_weather_for_location();
+    return false;
+  }
+});
+
+function request_weather_for_location() {
   $('#request_forecast_button').text('⏳')
 
   // Making a reguest to receive forecasters names and task ids 
@@ -8,17 +17,27 @@ $('#request_forecast_button').on('click', function() {
     method: 'POST',
   })
   .done((res) => {
+    
+    // The server responds with the list of tasks it created.
+    // Each task is a request to one weather forecaster.
     var task_ids = Array()
     for (const n in res.tasks) {
       var task = res.tasks[n]
+      
+      // Linking forecaster to a running task id
       $("#"+task.forecaster_id).attr('data-taskid', task.task_id)
       task_ids.push(task.task_id)
     }
+
+    // Update recognized gelocation (full address) from user request
     $("#address").text(res.address); 
     getStatus(task_ids);
   })
   .fail((err) => {
     if ((err.status == 404) || (err.status == 503)) {
+      // These errors are due to wrong location request 
+      // (geocoder coudn't recognize the place entered by user)
+      // Or because geocoder doesn't respond
       $("#address").text("❌ " + err.responseJSON.error); 
       updateTableAndStatus('all', '')
     } else {
@@ -28,16 +47,21 @@ $('#request_forecast_button').on('click', function() {
   .always(() => {
     $('#request_forecast_button').text('Request')
   });
-});
+};
 
 
 function getStatus(task_ids) {
+  // This funftion makes requests to django server to check statuses 
+  // of tasks that request weahter data from forecast serveses. 
+  // One task = one forecaster.
   $.ajax({
     url: `/get_forecast_statuses/`,
     data: {task_ids: task_ids.toString()},
     method: 'POST'
   })
   .done((response) => {
+    
+    // Creating list of pending tasks to request their statuses again
     var pending = Array()
     for (var n in response.results) {
       res = response.results[n]
@@ -60,6 +84,7 @@ function getStatus(task_ids) {
           status = '✅ '
           break;
         case 'PENDING':
+          // If task status == pending, we add task id in a list for further updates
           pending.push(res.task_id)
           status = '⏳ '
           break;
