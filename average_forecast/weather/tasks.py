@@ -13,11 +13,15 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    tasks = []
-    for forecaster in FORECASTERS:
-        task = forecaster['request_func'].delay(coords)
-        tasks.append({'forecaster_id': forecaster['id'], 'task_id': task.id})
-    return tasks
+    return {'WORKING':1, "WORKING2":2}
+
+    return [
+        {
+            'forecaster_id': forecaster['id'], 
+            'task_id': forecaster['request_func'].delay(coords).id
+        } 
+        for forecaster in FORECASTERS
+    ]
 
 @shared_task
 def get_weatherapi(coords):
@@ -42,21 +46,6 @@ def get_weatherapi(coords):
         'pressure': current_weather['pressure_mb'],
         'precip': current_weather['precip_mm']         
     }
-
-# @shared_task
-# def get_open_weather_map(city):
-#     url = "https://community-open-weather-map.p.rapidapi.com/forecast"
-#     querystring = {"q": city, "units": "metric"}
-#     headers = {
-#         "X-RapidAPI-Key": RAPID_API_KEY,
-#         "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
-#     }
-#     data_json = request("GET", url, headers=headers, params=querystring)
-#     data = data_json.json()
-#     current_weather = {
-#         # ToDo: figure out if this API works
-#     }
-#     return current_weather
 
 @shared_task
 def get_yahoo_weather(coords):
