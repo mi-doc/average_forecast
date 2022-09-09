@@ -1,6 +1,5 @@
 from django.test import TestCase
-from django.urls import reverse
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 import requests
 from django.core import exceptions
 
@@ -12,6 +11,15 @@ class IndexTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'weather/index.html')
 
+    def test_context(self):
+        mock_forecasters = [
+            {'readable_name': 'test1', 'id': 123, 'request_func': None},
+            {'readable_name': 'test2', 'id': 456, 'request_func': None},
+        ]
+        with patch('weather.views.FORECASTERS', mock_forecasters):
+            response = self.client.get('')
+            self.assertEqual(response.status_code, 200)
+            assert response.context_data['forecasters'] == mock_forecasters
 
 class GetForecastsForCityTestCase(TestCase):
 
