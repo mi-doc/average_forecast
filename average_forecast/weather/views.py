@@ -47,6 +47,11 @@ def get_forecasts_for_city(request):
 
         return JsonResponse(response, status=status)
 
+EXCEPTION_MESSAGES = {
+    requests.exceptions.ConnectionError: 'Failed to establish a connection with the server',
+    requests.exceptions.ConnectTimeout: 'The server hasn\'t responded (timeout exceeded)',
+    exceptions.ObjectDoesNotExist: 'No data for this location',
+}
 
 @csrf_exempt
 def get_forecast_statuses(request):
@@ -58,14 +63,9 @@ def get_forecast_statuses(request):
             task_result = task_data.result
 
             if task_data.status == 'FAILURE':
-                if type(task_result) == requests.exceptions.ConnectionError:
-                    task_result = 'Failed to extablish a connection with the server'
-                elif type(task_result) == requests.exceptions.ConnectTimeout:
-                    task_result = 'The server hasn\'t responded (timeout exceeded)'
-                elif type(task_result) == exceptions.ObjectDoesNotExist:
-                    task_result = 'No data for this location'
-                else:
-                    task_result = "Some unrecognized error occured"
+                task_result = EXCEPTION_MESSAGES.get(
+                    type(task_result), "Some unrecognized error occured"
+                    )
 
             results.append({
                 "task_id": task_id,
