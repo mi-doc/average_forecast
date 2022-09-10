@@ -77,19 +77,19 @@ def get_aeris_weather(coords):
     }
     data_json = request("GET", url, headers=headers)
     data = data_json.json()
-    if data['error'] and 'no results available' in data['error']['description'].lower():
+    if 'error' in data and 'no results available' in data['error']['description'].lower():
         raise ObjectDoesNotExist(data['error']['description'])
 
     current_weather = data['response']['ob']
 
     return {
         'source': 'aeris_weather',
-        'temp': current_weather['tempC'],
-        'condition': current_weather['weather'],
-        'wind_direction': current_weather['windDirDEG'],
-        'wind_speed': current_weather['windSpeedKPH'],
-        'humidity': current_weather['humidity'],
-        'pressure': current_weather['pressureMB']            
+        'temp': current_weather.get('tempC'),
+        'condition': current_weather.get('weather'),
+        'wind_direction': current_weather.get('windDirDEG'),
+        'wind_speed': current_weather.get('windSpeedKPH'),
+        'humidity': current_weather.get('humidity'),
+        'pressure': current_weather.get('pressureMB')            
     }
 
 @shared_task
