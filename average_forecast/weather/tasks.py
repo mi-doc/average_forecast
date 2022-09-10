@@ -109,13 +109,13 @@ def get_foreca_weather(coords):
 
     return {
         'source': 'foreca_weather',
-        'temp': current_weather['temperature'],
-        'condition': current_weather['symbolPhrase'],
-        'wind_direction': current_weather['windDir'],
-        'wind_speed': current_weather['windSpeed'],
-        'humidity': current_weather['relHumidity'],
-        'pressure': current_weather['pressure'],
-        'precip': current_weather['precipRate']
+        'temp': current_weather.get('temperature'),
+        'condition': current_weather.get('symbolPhrase'),
+        'wind_direction': current_weather.get('windDir'),
+        'wind_speed': current_weather.get('windSpeed'),
+        'humidity': current_weather.get('relHumidity'),
+        'pressure': current_weather.get('pressure'),
+        'precip': current_weather.get('precipRate')
     }
 
 @shared_task
@@ -131,15 +131,18 @@ def get_weatherBit(coords):
     data = json.loads(response.text)
     current_weather = data['data'][0]
 
+    wind_spd = current_weather.get('wind_spd')
+    if wind_spd != None:
+        wind_spd = float(wind_spd) * 3.6
     return {
-        'source': 'weather',
-        'temp': current_weather['temp'],
-        'condition': current_weather['weather']['description'],
-        'wind_direction': current_weather['wind_dir'],
-        'wind_speed': float(current_weather['wind_spd']) * 3.6,
-        'humidity': current_weather['rh'],
-        'pressure': current_weather['pres'],
-        'precip': current_weather['precip']
+        'source': 'weatherBit',
+        'temp': current_weather.get('temp'),
+        'condition': current_weather.get('weather', {}).get('description'),
+        'wind_direction': current_weather.get('wind_dir'),
+        'wind_speed': wind_spd,
+        'humidity': current_weather.get('rh'),
+        'pressure': current_weather.get('pres'),
+        'precip': current_weather.get('precip')
     } 
 
 @shared_task
