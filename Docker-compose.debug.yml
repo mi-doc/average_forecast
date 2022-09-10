@@ -4,7 +4,6 @@ services:
   web:
     build: 
       context: .
-      # dockerfile: ./Dockerfile
     volumes:
       - ./:/code
     # command: python average_forecast/manage.py runserver

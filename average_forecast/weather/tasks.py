@@ -13,8 +13,6 @@ def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
     This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
-    return {'WORKING':1, "WORKING2":2}
-
     return [
         {
             'forecaster_id': forecaster['id'], 
@@ -38,13 +36,13 @@ def get_weatherapi(coords):
     
     return {
         'source': 'weatherapi',
-        'temp': current_weather['temp_c'],
-        'condition': current_weather['condition']['text'],
-        'wind_direction': current_weather['wind_degree'],
-        'wind_speed': current_weather['wind_kph'],
-        'humidity': current_weather['humidity'],
-        'pressure': current_weather['pressure_mb'],
-        'precip': current_weather['precip_mm']         
+        'temp': current_weather.get('temp_c'),
+        'condition': current_weather.get('condition', {}).get('text'),
+        'wind_direction': current_weather.get('wind_degree'),
+        'wind_speed': current_weather.get('wind_kph'),
+        'humidity': current_weather.get('humidity'),
+        'pressure': current_weather.get('pressure_mb'),
+        'precip': current_weather.get('precip_mm')         
     }
 
 @shared_task
@@ -61,12 +59,12 @@ def get_yahoo_weather(coords):
 
     return {
         'source': 'yahoo_weather',
-        'temp': current_weather['condition']['temperature'],
-        'condition': current_weather['condition']['text'],
-        'wind_direction': current_weather['wind']['direction'],
-        'wind_speed': current_weather['wind']['speed'],
-        'humidity': current_weather['atmosphere']['humidity'],
-        'pressure': current_weather['atmosphere']['pressure']
+        'temp': current_weather.get('condition', {}).get('temperature'),
+        'condition': current_weather.get('condition', {}).get('text'),
+        'wind_direction': current_weather.get('wind', {}).get('direction'),
+        'wind_speed': current_weather.get('wind', {}).get('speed'),
+        'humidity': current_weather.get('atmosphere', {}).get('humidity'),
+        'pressure': current_weather.get('atmosphere', {}).get('pressure')
     }
 
 @shared_task
