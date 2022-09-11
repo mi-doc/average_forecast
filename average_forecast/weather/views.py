@@ -2,10 +2,8 @@ from celery.result import AsyncResult
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
-from django.core import exceptions
 
 import geocoder
-import requests
 from weather.tasks import FORECASTERS, run_tasks_to_request_forcasts
 
 
@@ -29,6 +27,7 @@ def get_forecasts_for_city(request):
         g = geocoder.osm(city)
         response = {}
 
+        # TODO: improve status checking
         if 'max retries exceeded with url' in g.status.lower():
             response["error"] = "Geolocation service is not responding. Try later."
             status = 503
@@ -48,9 +47,9 @@ def get_forecasts_for_city(request):
         return JsonResponse(response, status=status)
 
 EXCEPTION_MESSAGES = {
-    requests.exceptions.ConnectionError: 'Failed to establish a connection with the server',
-    requests.exceptions.ConnectTimeout: 'The server hasn\'t responded (timeout exceeded)',
-    exceptions.ObjectDoesNotExist: 'No data for this location',
+    'ConnectionError': 'Failed to establish a connection with the server',
+    'ConnectTimeout': 'The server hasn\'t responded (timeout exceeded)',
+    'ObjectDoesNotExist': 'No data for this location',
 }
 
 @csrf_exempt
@@ -64,7 +63,7 @@ def get_forecast_statuses(request):
 
             if task_data.status == 'FAILURE':
                 task_result = EXCEPTION_MESSAGES.get(
-                    type(task_result), "Some unrecognized error occured"
+                    type(task_result).__name__, "Some unrecognized error occured"
                     )
 
             results.append({

@@ -29,7 +29,6 @@ class TasksTestCase(TestCase):
             assert res == {'forecaster_id': 'mock1', 'task_id': '222999'}
             assert res2 == {'forecaster_id': 'mocktwo', 'task_id': '333444'}
             
-    
     def test_get_weatherapi(self):
         mock_weather = {
             'temp_c': 123,

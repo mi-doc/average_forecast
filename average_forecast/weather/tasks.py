@@ -11,13 +11,12 @@ RAPID_API_KEY: str = os.getenv('RAPID_API_KEY')
 
 def run_tasks_to_request_forcasts(coords: dict[str, float]) -> list[dict[str, int | str]]:
     """
-    This function takes coords name as an argument and creates tasks requesting
+    This function takes coords (lat and lng) as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
     return [
-        { 'forecaster_id': forecaster['id'], 
-            'task_id': forecaster['request_func'].delay(coords).id } 
-        for forecaster in FORECASTERS
+        { 'forecaster_id': f['id'], 'task_id': f['request_func'].delay(coords).id } 
+        for f in FORECASTERS
     ]
 
 @shared_task
