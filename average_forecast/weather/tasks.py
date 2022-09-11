@@ -1,28 +1,27 @@
 from django.core.exceptions import ObjectDoesNotExist
 from requests import request
 from celery import shared_task
+from typing import Any
 import json
 import os
 
 
-RAPID_API_KEY = os.getenv('RAPID_API_KEY')
+RAPID_API_KEY: str = os.getenv('RAPID_API_KEY')
 
 
-def run_tasks_to_request_forcasts(coords): # ToDo: add type checking
+def run_tasks_to_request_forcasts(coords: dict[str, float]) -> list[dict[str, int | str]]:
     """
     This function takes coords name as an argument and creates tasks requesting
     weather forecasters, and returns a list of task ids.
     """
     return [
-        {
-            'forecaster_id': forecaster['id'], 
-            'task_id': forecaster['request_func'].delay(coords).id
-        } 
+        { 'forecaster_id': forecaster['id'], 
+            'task_id': forecaster['request_func'].delay(coords).id } 
         for forecaster in FORECASTERS
     ]
 
 @shared_task
-def get_weatherapi(coords):
+def get_weatherapi(coords: dict[str, float]) -> dict[str, Any]:
     url = "https://weatherapi-com.p.rapidapi.com/current.json"
     querystring = {"q": f"{coords['lat']},{coords['lng']}"}
     headers = {
@@ -46,7 +45,7 @@ def get_weatherapi(coords):
     }
 
 @shared_task
-def get_yahoo_weather(coords):
+def get_yahoo_weather(coords: dict[str, float]) -> dict[str, Any]:
     url = "https://yahoo-weather5.p.rapidapi.com/weather"
     querystring = {"lat": coords['lat'], "long": coords['lng'],"format":"json","u":"c"}
     headers = {
@@ -68,7 +67,7 @@ def get_yahoo_weather(coords):
     }
 
 @shared_task
-def get_aeris_weather(coords):
+def get_aeris_weather(coords: dict[str, float]) -> dict[str, Any]:
     url = f"https://aerisweather1.p.rapidapi.com/observations/{coords['lat']},{coords['lng']}"
 
     headers = {
@@ -77,7 +76,7 @@ def get_aeris_weather(coords):
     }
     data_json = request("GET", url, headers=headers)
     data = data_json.json()
-    if 'error' in data and 'no results available' in data['error']['description'].lower():
+    if data['error'] and 'no results available' in data['error']['description'].lower():
         raise ObjectDoesNotExist(data['error']['description'])
 
     current_weather = data['response']['ob']
@@ -93,7 +92,7 @@ def get_aeris_weather(coords):
     }
 
 @shared_task
-def get_foreca_weather(coords):
+def get_foreca_weather(coords: dict[str, float]) -> dict[str, Any]:
     url = f"https://foreca-weather.p.rapidapi.com/current/{coords['lat']},{coords['lng']}"
 
     querystring = {"alt":"0","tempunit":"C","windunit":"kph","tz":"Europe/London","lang":"en"}
@@ -119,7 +118,7 @@ def get_foreca_weather(coords):
     }
 
 @shared_task
-def get_weatherBit(coords):
+def get_weatherBit(coords: dict[str, float]) -> dict[str, Any]:
     url = "https://weatherbit-v1-mashape.p.rapidapi.com/current"
     querystring = {"lon": coords['lng'],"lat": coords['lat']}
     headers = {
@@ -146,7 +145,7 @@ def get_weatherBit(coords):
     } 
 
 @shared_task
-def get_vc_weather(coords):
+def get_vc_weather(coords: dict[str, float]) -> dict[str, Any]:
     url = "https://visual-crossing-weather.p.rapidapi.com/forecast"
     querystring = {
         "aggregateHours":"24",
@@ -166,18 +165,18 @@ def get_vc_weather(coords):
     current_weather = location_data['currentConditions']
 
     return {
-        'source': 'weather',
-        'temp': current_weather['temp'],
-        'condition': location_data['values'][0]['conditions'],
-        'wind_direction': current_weather['wdir'],
-        'wind_speed': current_weather['wspd'],
-        'humidity': current_weather['humidity'],
-        'pressure': current_weather['sealevelpressure'],
-        'precip': current_weather['precip']
+        'source': 'vc_weather',
+        'temp': current_weather.get('temp'),
+        'condition': location_data.get('values', [{}])[0].get( 'conditions' ),
+        'wind_direction': current_weather.get('wdir'),
+        'wind_speed': current_weather.get('wspd'),
+        'humidity': current_weather.get('humidity'),
+        'pressure': current_weather.get('sealevelpressure'),
+        'precip': current_weather.get('precip')
     } 
 
 @shared_task
-def get_accu_weather(coords):
+def get_accu_weather(coords: dict[str, float]) -> dict[str, Any]:
     url = 'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search'
 
     # Getting "location key" of a place (required by accuweather)
@@ -197,14 +196,14 @@ def get_accu_weather(coords):
     current_weather = data[0]
 
     return {
-        'source': 'weather',
-        'temp': current_weather['Temperature']['Metric']['Value'],
-        'condition': current_weather['WeatherText'],
-        'wind_direction': current_weather['Wind']['Direction']['Degrees'],
-        'wind_speed': current_weather['Wind']['Speed']['Metric']['Value'],
-        'humidity': current_weather['RelativeHumidity'],
-        'pressure': current_weather['Pressure']['Metric']['Value'],
-        'precip': current_weather['Precip1hr']['Metric']['Value']
+        'source': 'accu_weather',
+        'temp': current_weather.get('Temperature', {}).get('Metric', {}).get('Value'),
+        'condition': current_weather.get('WeatherText'),
+        'wind_direction': current_weather.get('Wind', {}).get('Direction', {}).get('Degrees'),
+        'wind_speed': current_weather.get('Wind', {}).get('Speed', {}).get('Metric', {}).get('Value'),
+        'humidity': current_weather.get('RelativeHumidity'),
+        'pressure': current_weather.get('Pressure', {}).get('Metric', {}).get('Value'),
+        'precip': current_weather.get('Precip1hr', {}).get('Metric', {}).get('Value')
     } 
 
 
@@ -215,7 +214,7 @@ FORECASTERS_LIST = [
     ('WeatherApi', 'weatherapi', get_weatherapi),                 # 1,000,000 requests per month
     ('Aeris weather', 'aeris_weather', get_aeris_weather),        # 100 per day
     # ('Foreca weather', 'foreca_weather', get_foreca_weather),    # 100 per month
-    ('WeatherBit', 'weather', get_weatherBit),                           # 100 per day
+    ('WeatherBit', 'weatherBit', get_weatherBit),                           # 100 per day
     ('Visual crossing weather', 'vc_weather', get_vc_weather),      # 500 per month
 ]
 

@@ -7,14 +7,28 @@ import json
 import os
 
 
-RAPID_API_KEY = os.getenv('RAPID_API_KEY')
+RAPID_API_KEY: str = os.getenv('RAPID_API_KEY')
 
 
 class TasksTestCase(TestCase):
-    weather_keys = { 
+    weather_keys: dict = { 
         'source', 'temp', 'condition', 'wind_direction', 
         'wind_speed', 'humidity', 'pressure', 'precip'
          }
+
+    def test_run_tasks_to_request_forcasts(self):
+        mock_f, mock_f2 = Mock(), Mock()
+        mock_f.delay.return_value.id = '222999'
+        mock_f2.delay.return_value.id = '333444'
+        mock_forecasters = [
+            {'readable_name': 'Mock-service1', 'id': 'mock1', 'request_func':  mock_f },
+            {'readable_name': 'service2', 'id': 'mocktwo', 'request_func': mock_f2}
+        ]
+        with patch('weather.tasks.FORECASTERS', mock_forecasters):
+            res, res2 = tasks.run_tasks_to_request_forcasts({'lat': 123, 'lng': 222})
+            assert res == {'forecaster_id': 'mock1', 'task_id': '222999'}
+            assert res2 == {'forecaster_id': 'mocktwo', 'task_id': '333444'}
+            
     
     def test_get_weatherapi(self):
         mock_weather = {
@@ -108,7 +122,7 @@ class TasksTestCase(TestCase):
             "pressureMB": 200,
         }
         mock_response = Mock()
-        mock_response.json.return_value = {'response': {'ob': mock_weather}}
+        mock_response.json.return_value = {'response': {'ob': mock_weather}, 'error': None}
         with patch('weather.tasks.request', return_value = mock_response) as mock_req:
             res = tasks.get_aeris_weather({'lat':123, 'lng':321})
 
@@ -132,7 +146,7 @@ class TasksTestCase(TestCase):
             "pressureMB": 200,
         }
         mock_response = Mock()
-        mock_response.json.return_value = {'response': {'ob': mock_weather}}
+        mock_response.json.return_value = {'response': {'ob': mock_weather}, 'error': None}
         with patch('weather.tasks.request', return_value = mock_response):
             res = tasks.get_aeris_weather({'lat':123, 'lng':321})
 
@@ -255,4 +269,102 @@ class TasksTestCase(TestCase):
             assert res['temp'] == res['wind_speed'] == None
     
     def test_get_vc_weather(self):
-        pass
+        mock_weather = {
+            'temp': 123,
+            'wdir': 100,
+            "wspd": 14.3,
+            "humidity": 55,
+            "sealevelpressure": 201,
+            'precip': 12
+        }
+        mock_response = Mock()
+        mock_response.text = json.dumps({ 'locations': { '123, 321': { 
+                                    'values': [{'conditions': 'clear'}], 
+                                    'currentConditions': mock_weather
+                                    } } })
+        with patch('weather.tasks.request', return_value = mock_response) as mock_req:
+            res = tasks.get_vc_weather({'lat':123, 'lng':321})
+            assert res['source'] == 'vc_weather'
+            assert set(res.keys()) == self.weather_keys
+            assert res['condition'] == 'clear'
+            assert res['pressure'] == 201
+            mock_req.assert_called_once_with(
+                'GET', "https://visual-crossing-weather.p.rapidapi.com/forecast",
+                headers={ "X-RapidAPI-Key": RAPID_API_KEY, "X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com" },
+                params={ "aggregateHours":"24", "location": "123, 321",
+                            "contentType":"json", "unitGroup":"metric", "shortColumnNames":"0" }
+            )
+
+        mock_weather = {
+            'temp': 123,
+            # 'wdir': 100,
+            "wspd": 14.3,
+            # "humidity": 55,
+            "sealevelpressure": 201,
+            'precip': 12
+        }
+        mock_response = Mock()
+        mock_response.text = json.dumps({ 'locations': { '123, 321': { 
+                                    'currentConditions': mock_weather
+                                    } } })
+        with patch('weather.tasks.request', return_value = mock_response) as mock_req:
+            res = tasks.get_vc_weather({'lat':123, 'lng':321})
+            assert res['source'] == 'vc_weather'
+            assert set(res.keys()) == self.weather_keys
+            assert res['pressure'] == 201
+            assert res['humidity'] == res['condition'] == res['wind_direction'] == None
+    
+    def test_get_accu_weather(self):
+        mock_weather = {
+            'Temperature': {'Metric': {'Value': 25}},
+            'WeatherText': 'so cold!',
+            'Wind': {
+                    'Direction': {'Degrees': 222},
+                    'Speed': {'Metric': {'Value': 12}}
+                },
+            "RelativeHumidity": 56,
+            "Pressure": {'Metric': {'Value': 3}},
+            'Precip1hr': {'Metric': {'Value': 10}}
+        }
+
+        def mock_response_func(method, url, params):
+            text = {'Key': 'mock_location'}
+            if url ==  f"http://dataservice.accuweather.com/currentconditions/v1/{text['Key']}":
+                text = [mock_weather]
+            mock_response = Mock()
+            mock_response.text = json.dumps(text)
+            return mock_response
+
+        with patch('weather.tasks.request', side_effect=mock_response_func) as mock_req:
+            res = tasks.get_accu_weather({'lat':123, 'lng':321})
+            assert res['source'] == 'accu_weather'
+            assert set(res.keys()) == self.weather_keys
+            assert res['condition'] == 'so cold!'
+            assert res['pressure'] == 3
+            assert res['wind_speed'] == 12
+            mock_req.assert_called_with(
+                "GET",
+                "http://dataservice.accuweather.com/currentconditions/v1/mock_location",
+                params={"apikey": 'GfA1W3ZZr8lHUGCL3LGyV4UOEK80bGMI', 'details': 'true'}
+            )
+
+        # With missing params
+        mock_weather = {
+            # 'Temperature': {'Metric': {'Value': 25}},
+            'WeatherText': 'so cold!',
+            'Wind': {
+                    'Direction': {'Degrees': 222},
+                    # 'Speed': {'Metric': {'Value': 12}}
+                },
+            "RelativeHumidity": 56,
+            # "Pressure": {'Metric': {'Value': 3}},
+            'Precip1hr': {'Metric': {'Value': 10}}
+        }
+
+        with patch('weather.tasks.request', side_effect=mock_response_func) as mock_req:
+            res = tasks.get_accu_weather({'lat':123, 'lng':321})
+            assert res['source'] == 'accu_weather'
+            assert set(res.keys()) == self.weather_keys
+            assert res['wind_direction'] == 222
+            assert res['precip'] == 10
+            assert res['wind_speed'] == res['pressure'] == res['temp'] == None
