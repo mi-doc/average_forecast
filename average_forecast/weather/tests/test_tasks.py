@@ -156,13 +156,12 @@ class TasksTestCase(TestCase):
             assert res['humidity'] == 55
 
         # Test exception
-        with self.assertRaises(exceptions.ObjectDoesNotExist) as e:
+        with self.assertRaises(exceptions.ObjectDoesNotExist):
             with patch('weather.tasks.request') as mock_request:
-                mock_response = Mock()
-                mock_response.json.return_value = {'error': {'description': '..no results available...'}}
-                mock_request.return_value = mock_response
+                mock_request.return_value.json.return_value = {
+                    'error': {'description': '..no results available...'}
+                    }
                 res = tasks.get_aeris_weather({'lat':123, 'lng':321})
-            assert 'no results available' in e.exception.args[0]
         
         # Test other error doesn't raise exception
         with patch('weather.tasks.request') as mock_request:
