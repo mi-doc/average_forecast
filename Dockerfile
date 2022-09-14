@@ -17,15 +17,16 @@ COPY --from=builder /wheels /wheels
 RUN pip install -U pip setuptools wheel \
         && pip install /wheels/* \
         && rm -rf /wheels \
-        && rm -rf /root/.cache/pip/* 
+        && rm -rf /root/.cache/pip/* \
+        && mkdir average_forecast \
+        && cd average_forecast \
+        && mkdir -p staticfiles logs \
+        && touch logs/celery.log \
+        && adduser --disabled-password --no-create-home app \
+        && chown -R app:app logs staticfiles\
+        && chmod -R 755 logs staticfiles 
 
 COPY . .
-
-RUN mkdir -p average_forecast/{logs,staticfiles} /home/app \
-        && touch average_forecast/logs/celery.log \
-        && adduser --disabled-password --no-create-home app \
-        && chown -R app:app average_forecast/{logs,staticfiles} /home/app/ \
-        && chmod -R 755 average_forecast/{logs,staticfiles}
 
 EXPOSE 8000
 ENV PYTHONPATH /code

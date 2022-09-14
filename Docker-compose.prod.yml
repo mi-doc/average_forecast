@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  web:
+    build: 
+      context: .
+    command: >
+      sh -c "
+        cd average_forecast && \
+        python manage.py collectstatic --noinput && \
+        gunicorn -c docker/gunicorn.py average_forecast.wsgi:application
+      "
+    ports:
+      - 8000:8000
+    volumes:
+      - app_data:/code
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  celery:
+    build: 
+      context: .
+    command: sh -c "cd average_forecast && celery --app average_forecast worker --loglevel=info --logfile=logs/celery.log"
+    volumes:
+      - app_data:/code
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - redis
+
+  redis:
+    image: redis:6-alpine
+  
+  dashboard:
+    image: mher/flower
+    container_name: flower
+    command: celery flower --persisten=True
+    ports:
+      - 5555:5555
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - redis
+      - celery
+
+volumes:
+  app_data:
