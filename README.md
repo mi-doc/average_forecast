@@ -6,10 +6,10 @@
 * [Setup](#setup)
 
 ## General info
-This application collects current weather data for a requested location from a number of weather forecasters (for diversity) and calculates average numbers.
+This programm requests current weather readings for a specified location from several weather forecasters (for diversity) and shows averaged data.
 
 ## Technologies
-- Python 3.9
+- Python 3.10
 - Django 4.0
 - Celery, Redis
 - Geocoder (service to find a place by keyword)
@@ -26,8 +26,7 @@ These are weather services used in the app. Max request limit for free tier in b
 - WeatherBit (100 per day)
 - Visual crossing weather (500 per month)
 
-More popular weahter services like yandex, gismeteo and other don't provide free access for 
-their APIs that can be used in an app like this.
+More popular weahter services including yandex, gismeteo and other don't provide free access for their APIs that can be used in an app like this.
 
 ## Setup
 1. Install [docker-compose](https://docs.docker.com/compose/install/)
